@@ -8,7 +8,7 @@ const createError = require("http-errors");
 async function createBeneficiaries() {
 
   let citizensRef = firebase.firestore().collection('citizens');
-  citizensRef = citizensRef.orderBy('sisben', 'asc').limit(10);
+  citizensRef = citizensRef.orderBy('sisben', 'asc').limit(2);
   let citizens = {};
 
   let beneficiarieRef = firebase.firestore().collection('beneficiarie');
@@ -19,8 +19,10 @@ async function createBeneficiaries() {
     });
 
   snapshot.forEach(doc => {
+
     citizens[doc.id] = doc.data();
-    
+    citizens[doc.id].delivered = false;
+    citizens[doc.id].confirmationCode = Math.random().toString(36).slice(2);
   });
 
   console.log(citizens)
