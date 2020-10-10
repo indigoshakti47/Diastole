@@ -3,8 +3,6 @@ var router = express.Router();
 
 var accountService = require("../services/accountService");
 var userService = require('../services/userService');
-var emailService = require("../services/emailService");
-
 
 /* User sends email and password information, server replies with JWT token */
 router.post('/login', async (req, res, next) => {
@@ -25,12 +23,10 @@ router.post('/login', async (req, res, next) => {
 
 /* Register a new admin account */
 router.post('/account', async (req, res, next) => {
-    const { email, password, pInfo, role, role1, files } = req.body;
+    const { email, password} = req.body;
 
-    var data = await userService.createUserAccount(email, password, pInfo, role);
-    await userService.createUserInhouse(data.uid, email, pInfo, role, role1, files);
-
-    await emailService.createUserEmail(data.uid, email, password, pInfo, role);
+    var data = await accountService.createPersonAccount(email, password);
+    //await accountService.createPersonProfile(data.uid, email);
     
     res.json({
         status: 200,

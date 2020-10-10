@@ -39,28 +39,55 @@ async function signInWithEmail(email, password) {
  */
 
 async function createPersonAccount(account, password) {
+
   try {
     if (account == null || password == null)
       throw createError(400, 'INVALID_EMAIL_OR_PASSWORD');
 
-    let user = await firebase.auth().createUser({
-      email: account,
-      emailVerified: true,
-      password: password,
-      displayName: account
-    }).catch(err => {
-      throw createError(400, err)
-    });
+    await firebase.auth().getUserByEmail(account).catch(() => {
+      await firebase.auth().createUser({
+        email: account,
+        emailVerified: true,
+        password: password,
+        displayName: account
+      }).catch(err => {
+        throw createError(400, err)
+      });
+    })      
 
     return {
       email: account,
       password: password
     };
   } catch (err) {
-    throw createError(400, err);
+    throw createError(err);
   }
 
 }
 
+/**
+ * Create a person profile in the firestore
+ * 
+ * @param {string} uid The user uid.
+ * @param {string} email The email you want to register.
+ */
+
+async function createPersonProfile(uid, email) {
+
+  var userRef = firebase.firestore().collection('users').doc(uid);
+
+  const data = {
+    _id: uid,
+    email: email,
+    createdAt: firebase.firestore.Timestamp.now(),
+  };
+
+  await userRef.set(data)
+    .catch(() => {
+      throw createError(500, "FIRESTORE_TRANSACTION_ERROR");
+    });
+}
+
 module.exports.signInWithEmail = signInWithEmail;
 module.exports.createPersonAccount = createPersonAccount;
+module.exports.createPersonProfile = createPersonProfile;
