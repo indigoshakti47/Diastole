@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-var createError = require("http-errors");
+const createError = require("http-errors");
 
 const { analizarYResponderNivelUnoIVRExampleB } = require('../actions/WorkShopExample2Actions');
 const { sendMessage, makeCall } = require('../avaya/functions');
@@ -63,7 +63,7 @@ router.post("/panic", async (req, res, next) => {
   }
 });
 
-app.post("/service", async (req, res, next) => {
+router.post("/service", async (req, res, next) => {
   try {
     if (req.body.example2 && req.body.digit) {
       let exampleType = req.body.example2;

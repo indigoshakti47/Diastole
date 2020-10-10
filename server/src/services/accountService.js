@@ -44,7 +44,7 @@ async function createPersonAccount(account, password) {
     if (account == null || password == null)
       throw createError(400, 'INVALID_EMAIL_OR_PASSWORD');
 
-    await firebase.auth().getUserByEmail(account).catch(() => {
+    await firebase.auth().getUserByEmail(account).catch(async () => {
       await firebase.auth().createUser({
         email: account,
         emailVerified: true,
