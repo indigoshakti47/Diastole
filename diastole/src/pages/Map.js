@@ -1,9 +1,8 @@
 import React from 'react'
+import MapContainer from '../components/MapContainer'
 
 export default function Map() {
   return (
-    <div>
-      Here is going to be a map :)
-    </div>
+    <MapContainer  />
   )
 }

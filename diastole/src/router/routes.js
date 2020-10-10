@@ -25,6 +25,13 @@ const ROUTES = [
     exact: true,
     component: Products,
     auth: true,
+  },
+  {
+    path: '/map',
+    key: 'MAPS',
+    exact: true,
+    component: Map,
+    auth: true,
   }
 ];
 
