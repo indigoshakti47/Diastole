@@ -94,3 +94,11 @@
   font-size: 16px;
   letter-spacing: 1px;
 }
+
+/*bootstrap*/
+.d-flex{
+  display: flex;
+}
+.justify-content-between{
+  justify-content: space-between;
+}
