@@ -58,26 +58,6 @@ const LoginPage = ({ login }) => {
       });
   };
 
-  const handleLogout = () => {
-    fire
-    .auth().signOut();
-  };
-
-  const authListener = () => {
-    fire.auth().onAuthStateChanged((user) =>{
-      if (user){
-        setUser(user);
-        clearInput()
-      } else {
-        setUser('');
-      }
-    })
-  };
-
-  useEffect(()=> {
-    authListener();
-  }, []);
-
   return(
       <Login
       email={email}
@@ -86,7 +66,6 @@ const LoginPage = ({ login }) => {
       setPassword={setPassword}
       handleLogin={handleLogin}
       handleSignup={handleSignup}
-      handleLogout={handleLogout}
       hasAccount={hasAccount}
       setHasAccount={setHasAccount}
       emailError={emailError}

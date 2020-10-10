@@ -8,6 +8,7 @@ const AuthComponent = ({
   exact,
   logged,
 }) => {
+  console.log('isLogged: ', logged)
   if (logged) {
     return <Route component={Component} path={path} exact={exact} />;
   }

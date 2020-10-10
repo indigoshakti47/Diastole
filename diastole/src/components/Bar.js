@@ -1,16 +1,22 @@
 import React from 'react';
-import { fade, makeStyles } from '@material-ui/core/styles';
+
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as authActions from '../actions/authActions';
+
+import { Link } from 'react-router-dom';
+
+import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import HomeIcon from '@material-ui/icons/Home';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import ExitToApp from '@material-ui/icons/ExitToApp'
 
@@ -62,46 +68,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PrimarySearchAppBar = ({ handleLogout }) => {
+const createLink = (icon, name, route, action) => ({ icon, name, route, action })
+
+const PrimarySearchAppBar = ({ logout }) => {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
-  const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  const links = [
+    createLink(HomeIcon, 'Home', '/'),
+    createLink(AccountCircle, 'Perfil', '/profile'),
+    createLink(ExitToApp, 'Logout', '', logout),
+  ]
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
 
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
-  const menuId = 'primary-search-account-menu';
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
@@ -114,32 +101,17 @@ const PrimarySearchAppBar = ({ handleLogout }) => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
+      {links.map(({ icon: Icon, name, route, action }) => (
+        <MenuItem key={name} component={Link} to={route} onClick={() => action && action()}>
+          <IconButton color="inherit" >
+            <Badge color="secondary">
+              <Icon />
+            </Badge>
+          </IconButton>
+          <p>{name}</p>
+        </MenuItem>
+      ))
+      }
     </Menu>
   );
 
@@ -147,40 +119,20 @@ const PrimarySearchAppBar = ({ handleLogout }) => {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar color="primary">
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-          >
-            <MenuIcon />
-          </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             Diástole
           </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton color="inherit">
-              <Badge badgeContent={1} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton  color="inherit">
-              <Badge badgeContent={7} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              edge="end"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-            <IconButton onClick={handleLogout} color="inherit">
-                <ExitToApp/>
-            </IconButton>
+            {
+              links.map(({ icon: Icon, name, route, action }) => (
+                <IconButton color="inherit" key={name} component={Link} to={route} onClick={() => action && action()}>
+                  <Badge color="secondary">
+                    <Icon />
+                  </Badge>
+                </IconButton>
+              ))
+            }
           </div>
           <div className={classes.sectionMobile}>
             <IconButton
@@ -195,8 +147,16 @@ const PrimarySearchAppBar = ({ handleLogout }) => {
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
-      {renderMenu}
     </div>
   );
 }
-export default PrimarySearchAppBar;
+
+
+const mapDispatchToProps = (dispatch) => bindActionCreators(
+  {
+    logout: authActions.logout
+  },
+  dispatch,
+);
+
+export default connect(null, mapDispatchToProps)(PrimarySearchAppBar);

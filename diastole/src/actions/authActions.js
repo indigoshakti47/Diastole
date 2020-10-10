@@ -1,13 +1,9 @@
-import { SET_USER, LOGOUT } from './actionTypes';
+import { SET_USER } from './actionTypes';
 import fire from '../fire';
 
 export const setUser = (user) => ({
   type: SET_USER,
   payload: user,
-});
-
-const _logout = () => ({
-  type: LOGOUT,
 });
 
 export const login = ({ email, password }) => async (dispatch) => {
@@ -16,7 +12,7 @@ export const login = ({ email, password }) => async (dispatch) => {
 };
 
 export const logout = () => (dispatch) => {
-  localStorage.removeItem('user');
+  fire.auth().signOut();
+  console.log('before...')
   dispatch(setUser(null));
-  dispatch(_logout());
 };
