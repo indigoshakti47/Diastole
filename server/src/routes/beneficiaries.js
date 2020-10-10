@@ -7,7 +7,7 @@ router.get("/allBeneficierie", async (req, res, next) => {
 
   try {
 
-    const beneficiaries = await getAllBeneficiaries(req.body.person)
+    const beneficiaries = await getAllBeneficiaries(req.body.limit)
 
     res.json({
       status: 200,
