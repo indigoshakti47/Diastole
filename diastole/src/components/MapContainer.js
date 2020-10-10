@@ -1,16 +1,18 @@
 import React from 'react';
 import { Map, Marker, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
 
-const MapContainer = ({ google }) => {
+const MapContainer = ({ google, citizens }) => {
 
 
-  const onMarkerClick = marker => 
+  const onMarkerClick = marker => console.log(marker)
   const onInfoWindowClose = console.log
 
   return (
     <Map google={google} zoom={14}>
-      <Marker onClick={onMarkerClick}
-        name={'Current location'} />
+      {
+        citizens.map(c => <Marker position={{ lat: c.location.log, lng: c.location.lat }} key={c.document_number} onClick={onMarkerClick}
+          name={'Current location'} />)
+      }
 
       <InfoWindow onClose={onInfoWindowClose}>
         <div>
