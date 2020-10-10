@@ -3,13 +3,15 @@ const express = require('express');
 const fileupload = require("express-fileupload");
 const admin = require('firebase-admin');
 const cors = require('cors');
+const serviceAccount = require("../diastole11-firebase-adminsdk-jdbmm-85bda9682b.json");
+
 
 const { getFirebaseCredentials, errorHandler } = require("./helpers/helperFunctions");
 
 require('dotenv').config();
 
 admin.initializeApp({
-  credential: admin.credential.cert(getFirebaseCredentials()),
+  credential: admin.credential.cert(serviceAccount),
   databaseURL: 'https://diastole11.firebaseio.com'
 });
 
@@ -27,8 +29,10 @@ app.get('/', (req, res) => {
 
 /* Declare routes*/
 const messagesRoute = require('./routes/messages');
+const beneficiaresRoute = require('./routes/beneficiaries');
  
 app.use(messagesRoute);
+app.use(beneficiaresRoute);
 app.use(errorHandler);
 
 app.listen(port, () => {

@@ -23,6 +23,24 @@ router.post("/sendUserMessage", async (req, res, next) => {
   }
 });
 
+router.post("/sendCodeMessage", async (req, res, next) => {
+  try {
+    
+    await createMessageCode(req.body.person)
+
+    res.json({
+      status: 200,
+      response: "MESSAGE_SENT",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+      },
+    });
+  } catch (err) {
+    throw createError(err);
+  }
+});
+
 
 // Bases
 router.post("/panic", async (req, res, next) => {

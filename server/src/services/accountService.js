@@ -1,6 +1,6 @@
-var firebase = require("firebase-admin");
-var createError = require("http-errors");
-var axios = require('axios');
+const firebase = require("firebase-admin");
+const createError = require("http-errors");
+const axios = require('axios');
 
 const apiKey = process.env.API_KEY;
 

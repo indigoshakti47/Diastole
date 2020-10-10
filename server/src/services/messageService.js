@@ -30,9 +30,27 @@ async function createMessageUser(person) {
   } catch(err){
     throw createError(400, err);
   }
+}
 
+/**
+ * Sends a message.
+ * 
+ * @param {Object} person 
+
+ */
+async function createMessageCode(person) {
+  try{
+    //Create a user account by names and document ID
+
+    let bodyMessage = `Hola! El código para recibir tu pedido es ${person.confirmationCode}`;
   
+    //Send message
+    await sendMessage(`+57${person.phone}`, bodyMessage);
 
+  } catch(err){
+    throw createError(400, err);
+  }
 }
 
 module.exports.createMessageUser = createMessageUser;
+module.exports.createMessageCode = createMessageCode;
