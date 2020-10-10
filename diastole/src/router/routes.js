@@ -2,8 +2,9 @@ import Login from '../pages/Login';
 import Map from '../pages/Map';
 import RegisterProduct from '../pages/RegisterProduct';
 import Products from '../pages/Products';
+import Tracker from '../pages/Tracker'; 
 
-// Este es un arreglo donde irán todas las rutas de nuestra App ;)
+// Este es un arreglo donde irán todas las rutas de nuestra App ;) - :D
 const ROUTES = [
   {
     path: ['/', '/login', '/sign-up'], // could be an array or a string
@@ -24,6 +25,13 @@ const ROUTES = [
     key: 'PRODUCTS',
     exact: true,
     component: Products,
+    auth: true,
+  },
+  {
+    path: '/tracker',
+    key: 'TRACKER',
+    exact: true,
+    component: Tracker,
     auth: true,
   }
 ];

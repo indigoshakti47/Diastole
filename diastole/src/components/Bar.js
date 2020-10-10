@@ -18,6 +18,7 @@ import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import InfoIcon from '@material-ui/icons/InfoOutlined'
 import ExitToApp from '@material-ui/icons/ExitToApp'
 
 const useStyles = makeStyles((theme) => ({
@@ -79,6 +80,7 @@ const PrimarySearchAppBar = ({ logout }) => {
   const links = [
     createLink(HomeIcon, 'Home', '/'),
     createLink(AccountCircle, 'Perfil', '/profile'),
+    createLink(InfoIcon, 'Prueba', '/tracker'),
     createLink(ExitToApp, 'Logout', '', logout),
   ]
 
