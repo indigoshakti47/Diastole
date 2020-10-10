@@ -7,9 +7,8 @@ const AuthComponent = ({
   path,
   exact,
   logged,
-  authorized,
 }) => {
-  if (logged && authorized) {
+  if (logged) {
     return <Route component={Component} path={path} exact={exact} />;
   }
 
@@ -20,20 +19,18 @@ const NoAuthComponent = ({
   component: Component,
   path,
   exact,
-  authorized,
   logged,
 }) => {
-  if (logged && authorized) {
-    return <Redirect to="/swipe" />;
+  if (logged) {
+    return <Redirect to="/products" />;
   }
 
   return <Route component={Component} path={path} exact={exact} />;
 };
 
-function mapStateToProps({ user, token }) {
+function mapStateToProps({ user }) {
   return {
-    logged: !!token,
-    authorized: user && Boolean(user.fullName),
+    logged: !!user
   };
 }
 

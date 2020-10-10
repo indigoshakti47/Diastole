@@ -17,14 +17,14 @@ const ROUTES = [
     key: 'REGISTER_PRODUCT',
     exact: true,
     component: RegisterProduct,
-    auth: false,
+    auth: true,
   },
   {
     path: '/products',
     key: 'PRODUCTS',
     exact: true,
     component: Products,
-    auth: false,
+    auth: true,
   }
 ];
 

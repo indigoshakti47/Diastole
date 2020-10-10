@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
+
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as authActions from '../actions/authActions';
+
 import fire from "../fire";
 import Login from '../components/Login';
 
-const App = () => {
+const LoginPage = ({ login }) => {
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,22 +25,18 @@ const App = () => {
     setEmailError('');
   };
 
-  const handleLogin = () => {
-    fire
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .catch((err) => {
-        switch (err.code) {
-          case "auth/invalid-email":
-          case "auth/user-disabled":
-          case "auth/user-not-found":
-            setEmailError(err.message);
-            break;
-          case "auth/invalid-password":
-            setPasswordError(err.message);
-            break;
-        }
-      });
+  const handleLogin = async () => {
+    clearError()
+    try {
+      await login({ email, password })
+    } catch (err) {
+      const emailErrors = ["auth/invalid-email", "auth/user-disabled", "auth/user-not-found"];
+
+      if (emailErrors.includes(err.code)) {
+        return setEmailError(err.message);
+      }
+      return setPasswordError(err.message);
+    }
   };
 
   const handleSignup = () => {
@@ -43,6 +44,7 @@ const App = () => {
     fire
       .auth()
       .createUserWithEmailAndPassword(email, password)
+      .then(console.log)
       .catch((err) => {
         switch (err.code) {
           case "auth/email-already-in-use":
@@ -93,4 +95,12 @@ const App = () => {
   );
 };
 
-export default App;
+const mapDispatchToProps = (dispatch) => bindActionCreators(
+  {
+    login: authActions.login
+  },
+  dispatch,
+);
+
+
+export default connect(null, mapDispatchToProps)(LoginPage);

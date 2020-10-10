@@ -9,13 +9,9 @@ import initialState from './initialState';
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
-      localStorage.setItem(
-        'user',
-        JSON.stringify({ ...state.user, ...action.payload }),
-      );
       return {
         ...state,
-        user: { ...state.user, ...action.payload },
+        user: {...action.payload },
       };
     case LOGOUT:
       return {
