@@ -39,13 +39,12 @@ const SideBar = ({ logout }) => {
     const [activeIcon, setActiveIcon] = useState(); 
     return (
         <div className = "side-bar">
-            <div clssName = "icons-bar">
             <img className = "logo" src = {Logo} /> 
                 {
               links.map(({ icon: Icon, name, route, action }, index) => (
-                    <div className = {index <= links.length - 2 ? "icon-container-menu" : "icon-container-menu last"}> 
-                        <span class = "line-icon-decorator" /> 
-                        <IconButton className="icon-side-menu" color="secondary" key={name} component={Link} to={route} onClick={() => action && action()}>
+                    <div className = {index <= links.length - 2 ? "icon-container-menu" : "icon-container-menu last"} key={name}> 
+                        <span className = {"line-icon-decorator"} /> 
+                        <IconButton className="icon-side-menu" color="secondary" component={Link} to={route} onClick={() => action && action()}>
                             <Badge color="white">
                                 <Icon />
                             </Badge>
@@ -53,7 +52,6 @@ const SideBar = ({ logout }) => {
                     </div>
               ))
             }
-        </div>
         </div>
     ) 
 }

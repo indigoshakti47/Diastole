@@ -253,19 +253,16 @@
 
 .side-bar{
   background: #082E2D;
-  display: block;
-  width: 70px;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   z-index: 200;
-  position: absolute;
 }
 
 .icon-container-menu{
-  margin: auto;
   display: flex !important;
   align-items: center;
-  align-items: middle;
-  
+  align-items: middle;  
 }
 
 .icon-container-menu.last{
@@ -326,13 +323,9 @@
 
 
 .logo{
-  margin: auto;
+  margin: 20px auto;
   width: 40px;
   height: 40px;
-  
-  display: block;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 
@@ -341,17 +334,14 @@
   Layout
 */ 
 
-.layout-children{
-  
-  flex-grow: 20;
-  width: 10px;
-  background: red;
-  display: block;
+.layout-children{  
+  flex-grow: 1;
 }
 
 .layout-bar{
-  flex-grow: 1;
-  display: block;
+  width: 70px;
+  flex-grow: 0;
+  display: flex;
 }
 
 .send-btn{
