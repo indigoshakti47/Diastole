@@ -45,7 +45,7 @@ async function createMessageCode(person) {
     let bodyMessage = `Hola! El código para recibir tu pedido es ${person.confirmationCode}`;
   
     //Send message
-    await sendMessage(`+57${person.phone}`, bodyMessage);
+    await sendMessage(`+57${person.cellphone_number}`, bodyMessage);
 
   } catch(err){
     throw createError(400, err);
