@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 export default function DetailedBeneficiarie() {
+    let history = useHistory();
     const [beneficiarie, setBeneficiarie] = useState(null);
-    sendCode = () => {
-        fetch('../post.php', {
+    const sendCode = () => {
+        fetch('https://localhost:5000/', {
             method: 'POST',
             body: {}
         }).then(snap => {
-            let history = useHistory();
             history.push("/verificar-beneficiario/" + beneficiarie.document_number);
         })
     }
