@@ -13,13 +13,14 @@ export default function ListBeneficiaries () {
   const [open, setOpen] = useState(false); 
   const [document, setDocument] = useState(); 
   const [code, setCode] = useState(); 
+  const [beneficiariee, setBeneficiariee] = useState({}); 
 
   const [option, setOption] = useState(0);  
   const [filteredBeneficiaries, setFiltetedBeneficiaries] = useState([]);
   const [searchInput, setSearchInput] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/allBeneficierie?limit=10', {
+    fetch('http://localhost:5000/allBeneficierie?limit=25', {
       method: 'GET',
     }).then(snap => snap.json()).then(response => {
       setBeneficiaries(Object.values(response.beneficiaries))
@@ -27,7 +28,9 @@ export default function ListBeneficiaries () {
     })
   }, []);
 
-  const createModal = ({confirmationCode, document_number}) => {
+  const createModal = (beneficiarie) => {
+    setDocument(beneficiarie.document_number);
+    setBeneficiariee(beneficiarie)
     setOpen(true); 
   }
 
@@ -40,7 +43,7 @@ export default function ListBeneficiaries () {
     console.log(beneficiarie)
     //mandar sms al beneficiario
 
-    let formData = new FormData();
+    /*let formData = new FormData();
     formData.append('person', beneficiarie);
     fetch('http://localhost:5000/sendCodeMessage', {
       method: 'POST',
@@ -52,6 +55,7 @@ export default function ListBeneficiaries () {
       console.log(response);
     }).catch(err => console.log(err))
     //  history.push("/detalles-beneficiarios/"+beneficiarie.document_number);
+    */
   }
 
   /**
@@ -75,16 +79,33 @@ export default function ListBeneficiaries () {
    * Envió de información del modal para verificación. 
    */
   const retrieveData = () => {
-    console.log(`${document} - ${code}`); 
+
+    fetch(`http://localhost:5000/beneficierie?document_number=${document}&code=${code}`, {
+      method: 'PUT'
+      }).then(snap => snap.text()).then(response => {
+      console.log(response);
+    }).catch(err => console.log(err))
+
+    console.log(`${code}`); 
     handleClose();
-    alert(`Datos Enviados:\n${document} - ${code}`); 
+    alert(`Datos Enviados:\n- ${code} - ${document}`); 
   }
 
   /**
    * LLamado a la API para recordar el código
    */
   const rememberCode = () => {
-    alert('Recordado'); 
+    let formData = new FormData();
+    formData.append('person', beneficiariee);
+    fetch('http://localhost:5000/sendCodeMessage', {
+      method: 'POST',
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({person : beneficiariee})
+    }).then(snap => snap.text()).then(response => {
+      console.log(response);
+    }).catch(err => console.log(err))
   }
 
   const body = (
@@ -94,14 +115,6 @@ export default function ListBeneficiaries () {
       {/* Formulario del modal*/ }
       <form style = {{ width: '80%', margin: 'auto', marginTop: '40px', position: "relative"}}>
         {/* Documento */ }
-      <TextField
-      type="number"
-          label="Documento de Identificación"
-          id="standard-start-adornment"
-          fullWidth
-          onChange = { changeDocument }
-          
-        />
       <TextField
       label="Código"
       id="standard-start-adornment"
@@ -119,7 +132,6 @@ export default function ListBeneficiaries () {
       </form>
     </div>
   );
-
 
   const filterBeneficiaries = (text) => {
     let results = beneficiaries
