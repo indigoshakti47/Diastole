@@ -128,6 +128,7 @@ const MapContainer = ({ google, citizens }) => {
     <Map
       google={google}
       zoom={6}
+      containerStyle={{position: "relative"}}
       onReady={_onMapLoaded}>
       {
         citizens.map(c => <Marker
