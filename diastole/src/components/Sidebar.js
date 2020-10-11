@@ -15,7 +15,7 @@ const SideBar = ({ logout }) => {
     const createLink = (icon, name, route, action) => ({ icon, name, route, action })
 
     const links = [
-        createLink(HomeIcon, 'Home', '/'),
+        createLink(HomeIcon, 'Home', '/dashboard'),
         createLink(MapIcon, 'Mapa', '/map'),
         createLink(ListIcon, 'Lista de beneficiarios', '/lista-beneficiarios'),
         createLink(ExitToApp, 'Logout', '', logout),
