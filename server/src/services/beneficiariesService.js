@@ -23,11 +23,11 @@ async function createBeneficiaries() {
 
     citizens[doc.id] = doc.data();
     citizens[doc.id].delivered = false;
-    citizens[doc.id].confirmationCode = Math.random().toString(36).slice(2);
-    createMessageUser(doc.data())
+    citizens[doc.id].confirmationCode = (Math.random().toString(36).slice(2)).substring(0,4);
+    console.log(doc.data())
+    createMessageUser(citizens[doc.id])
   });
 
-  console.log(citizens)
 
   for (const citizen in citizens) {
     await beneficiarieRef.doc(citizen).set(citizens[citizen])
@@ -68,7 +68,7 @@ async function getAllBeneficiaries(limit) {
 
 
 /**
-* Get the one beneficierie.
+* Get the beneficierie.
 * 
 * @param {number} document_number 
 * 
@@ -77,13 +77,49 @@ async function getAllBeneficiaries(limit) {
 async function getOneBeneficiarie(document_number) {
 
   let beneficiarie = firebase.firestore().collection('beneficiarie');
+  beneficiarie = beneficiarie.where('document_number', '==', parseInt(document_number));
 
-  beneficiarie = beneficiarie.where('document_number', '==', document_number);
+  let beneficiaries = {};
 
-  return await beneficiarie.get();
+  let snapshot = await beneficiarie.get()
+    .catch(() => {
+      throw createError(500, 'FIRESTORE_TRANSACTION_ERROR');
+    });
+
+  snapshot.forEach(doc => {
+    beneficiaries[doc.id] = doc.data();
+  });
+
+  return beneficiaries;
+
+}
+
+/**
+* Set the beneficierie.
+* 
+* @param {number} document_number 
+* 
+* @return {Object} An object containing the users found.
+*/
+async function setOneBeneficiarie(document_number, code) {
+
+  const beneficiarieToSet = await getOneBeneficiarie(document_number)
+  const codeConfirmation = beneficiarieToSet[Object.keys(beneficiarieToSet)[0]].confirmationCode;
+
+  if(codeConfirmation == code){
+    await firebase.firestore().collection('beneficiarie').doc(Object.keys(beneficiarieToSet)[0]).update({delivered: true})
+      .catch(() => {
+        throw createError(500, err);
+      });
+  } else {
+    throw createError(400, 'CODE_NOT_MATCH');
+  }
+
+  return beneficiarieToSet;
 
 }
 
 module.exports.getAllBeneficiaries = getAllBeneficiaries;
 module.exports.getOneBeneficiarie = getOneBeneficiarie;
 module.exports.createBeneficiaries = createBeneficiaries;
+module.exports.setOneBeneficiarie = setOneBeneficiarie;

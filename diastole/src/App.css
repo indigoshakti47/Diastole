@@ -262,14 +262,10 @@
 .icon-container-menu{
   display: flex !important;
   align-items: center;
-  align-items: middle;  
 }
 
 .icon-container-menu.last{
-  bottom: 0px;
-  position: absolute;
-  left: 0px;
-  right: 0px;
+  margin-top: auto;
 }
 
 .icon-side-menu{
