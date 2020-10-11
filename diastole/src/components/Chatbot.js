@@ -91,7 +91,7 @@ const Chatbot = () => {
                 {/* Messages */}
                 <div> 
                 {/* Lista de comentarios */}
-                <div style = {{overflow: 'scroll', height: '400px'}}>
+                <div style = {{overflow: 'scroll', maxHeight: '400px'}}>
                     { getComments() }
                 </div>
                 <form className = "form-text-field">
@@ -110,12 +110,12 @@ const Chatbot = () => {
                         {/* Botón de envío */}
                         <Grid item xs={2}>
                             <Button
-                                variant="contained"
-                                color="primary" 
+                                className="send-btn"
+                                // variant="contained"
                                 onClick={sendMessage}
                                 
                             >
-                                Envíar
+                                Enviar
                             </Button>
                         </Grid>
                     </Grid>

@@ -353,3 +353,40 @@
   flex-grow: 1;
   display: block;
 }
+
+.send-btn{
+  background-color: #589f9d !important;
+  color:#fff !important;
+}
+/*
+Media queries
+*/
+
+@media only screen and (max-width: 760px) {
+  .card-text{
+    width: 80%;
+    position: absolute;
+    margin: auto;
+    margin-bottom: 0px;
+    left: 50px;
+    right: 0px;
+    bottom: 15px;
+    height: 95%;
+  
+  }
+  .text-container{
+    padding: 5px;
+    margin-top: 3px;
+    margin-right: 3px;
+  }
+  .profile-image{
+    width: 15%;
+  }
+  .image-profile{
+    width: 40px;
+  }
+  .MuiButton-text {
+    padding: 3px 0px !important;
+}
+
+}
