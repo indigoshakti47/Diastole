@@ -41,21 +41,7 @@ export default function ListBeneficiaries () {
   const goToBeneficiareData = (beneficiarie) => {
     createModal(beneficiarie); 
     console.log(beneficiarie)
-    //mandar sms al beneficiario
 
-    /*let formData = new FormData();
-    formData.append('person', beneficiarie);
-    fetch('http://localhost:5000/sendCodeMessage', {
-      method: 'POST',
-      headers:{
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({person : beneficiarie})
-    }).then(snap => snap.text()).then(response => {
-      console.log(response);
-    }).catch(err => console.log(err))
-    //  history.push("/detalles-beneficiarios/"+beneficiarie.document_number);
-    */
   }
 
   /**
@@ -84,7 +70,17 @@ export default function ListBeneficiaries () {
       method: 'PUT'
       }).then(response => {
       if(response.status == 400) alert("El código enviado no es correcto")
-      else alert("El código fue aceptado.")
+      else {
+        alert("El código fue aceptado.")
+        const newBeneficiaries = beneficiaries.map(ben => {
+          if(ben.document_number == document){
+            ben.delivered = true
+          }
+          return ben
+        })
+        setBeneficiaries(newBeneficiaries)
+      }
+      
       console.log(response.status);
     }).catch(err => console.log(err))
     handleClose();

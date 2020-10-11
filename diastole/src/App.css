@@ -239,15 +239,7 @@
 
 
 .form-text-field{
-  width: 80%;
-  margin: auto;
-}
-
-.form-text-field{
-  bottom: 30px;
-  position: absolute;
-  left: 0px;
-  right: 0px;
+  padding: 25px;
 }
 
 /*
