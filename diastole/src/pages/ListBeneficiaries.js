@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-<<<<<<< HEAD
-import { Card, Box, Grid, Typography, Modal, TextField, Button, Icon } from '@material-ui/core'
-=======
-import { Card, Box, Grid, Typography, IconButton, Paper, InputBase, Divider } from '@material-ui/core'
+import { Card, Box, Grid, Typography, Modal, TextField, Button, Icon , IconButton, Paper, InputBase, Divider } from '@material-ui/core'
+
 import { Search as SearchIcon, Close as CloseIcon } from '@material-ui/icons'
->>>>>>> 0f045d166fc42463e0e20174639e507f15379674
 
 export default function ListBeneficiaries () {
 
@@ -13,16 +10,13 @@ export default function ListBeneficiaries () {
 
   let history = useHistory();
   const [beneficiaries, setBeneficiaries] = useState([]);
-<<<<<<< HEAD
   const [open, setOpen] = useState(false); 
   const [document, setDocument] = useState(); 
   const [code, setCode] = useState(); 
 
   const [option, setOption] = useState(0);  
-=======
   const [filteredBeneficiaries, setFiltetedBeneficiaries] = useState([]);
   const [searchInput, setSearchInput] = useState([]);
->>>>>>> 0f045d166fc42463e0e20174639e507f15379674
 
   useEffect(() => {
     fetch('http://localhost:5000/allBeneficierie?limit=10', {
@@ -60,7 +54,6 @@ export default function ListBeneficiaries () {
     //  history.push("/detalles-beneficiarios/"+beneficiarie.document_number);
   }
 
-<<<<<<< HEAD
   /**
    * Actualizar el valor de documento del text field.
    * @param {*} e 
@@ -128,7 +121,6 @@ export default function ListBeneficiaries () {
   );
 
 
-=======
   const filterBeneficiaries = (text) => {
     let results = beneficiaries
     if (text) {
@@ -142,7 +134,6 @@ export default function ListBeneficiaries () {
     filterBeneficiaries(value)
   }
 
->>>>>>> 0f045d166fc42463e0e20174639e507f15379674
   return (
     <React.Fragment>
       <Modal

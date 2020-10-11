@@ -25,7 +25,7 @@ const SideBar = ({ logout }) => {
     return (
         <React.Fragment> 
             { /* Desktop */}
-        <div className = "side-bar">
+        <div className = "side-bar desktop">
             <img className = "logo" src = {Logo} /> 
                 {
               links.map(({ icon: Icon, name, route, action }, index) => (
