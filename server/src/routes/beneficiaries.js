@@ -6,8 +6,9 @@ const { getAllBeneficiaries, createBeneficiaries } = require("../services/benefi
 router.get("/allBeneficierie", async (req, res, next) => {
 
   try {
-
-    const beneficiaries = await getAllBeneficiaries(req.body.limit)
+    const { limit } = req.query;
+      
+    const beneficiaries = await getAllBeneficiaries(limit)
 
     res.json({
       status: 200,

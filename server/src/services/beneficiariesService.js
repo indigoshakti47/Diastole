@@ -46,7 +46,7 @@ async function getAllBeneficiaries(limit) {
   let beneficiarieRef = firebase.firestore().collection('beneficiarie');
   let beneficiaries = {};
 
-  beneficiarieRef = beneficiarieRef.limit(limit);
+  beneficiarieRef = beneficiarieRef.limit(parseInt(limit));
 
   let snapshot = await beneficiarieRef.get()
     .catch(() => {
