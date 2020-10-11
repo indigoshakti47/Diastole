@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import './Login.scss';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as authActions from '../actions/authActions';
-
+import { Link } from 'react-router-dom';
+import MessagesIcon from '@material-ui/icons/Message'
+import Fab from '@material-ui/core/Fab'
 import fire from "../fire";
 import Login from '../components/Login';
 
 const LoginPage = ({ login }) => {
-  const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -59,6 +61,7 @@ const LoginPage = ({ login }) => {
   };
 
   return(
+    <>
       <Login
       email={email}
       setEmail={setEmail}
@@ -71,6 +74,15 @@ const LoginPage = ({ login }) => {
       emailError={emailError}
       passwordError={passwordError}
       />
+      <div className="chatbot-fab">
+        <Fab color="primary" aria-label="add" component={Link} to="/tracker">
+          <MessagesIcon />
+        </Fab>
+        <div className="animated-text">
+          Revisa el estado de tu ayuda!
+        </div>
+      </div>
+    </>
   );
 };
 

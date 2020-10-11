@@ -76,7 +76,8 @@ const ROUTES = [
     key: 'TRACKER',
     exact: true,
     component: Tracker,
-    auth: true,
+    auth: false,
+    redirect: false
   }
 ];
 
