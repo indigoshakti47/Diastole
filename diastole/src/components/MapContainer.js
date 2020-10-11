@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Map, Marker, InfoWindow, GoogleApiWrapper, Polygon } from 'google-maps-react';
+import Button from '@material-ui/core/Button'
+import '../styles/InfoWindow.scss'
 
 const BOGOTA_COORDS = {
   lat: 4.693452,
@@ -7,6 +9,9 @@ const BOGOTA_COORDS = {
 }
 
 const MapContainer = ({ google, citizens }) => {
+  const [infoMarker, setInfoMarker] = useState(null);
+  const [selectedCitizen, setSelectedCitizen] = useState({});
+
   const generatePolygonPoints = (location, radius) => {
     let coordinates = []
     for (let i = 0; i < 360; i++) {
@@ -19,8 +24,15 @@ const MapContainer = ({ google, citizens }) => {
     return coordinates
   }
 
-  const onMarkerClick = marker => console.log(marker)
-  const onInfoWindowClose = console.log
+  const onMarkerClick = (marker, citizen) => {
+    setInfoMarker(marker);
+    setSelectedCitizen(citizen);
+  }
+
+  const onInfoWindowClose = () => {
+    setInfoMarker(null);
+    setSelectedCitizen({});
+  }
 
   const _onMapLoaded = (mapProps, map) => {
     centerMap(map);
@@ -67,16 +79,15 @@ const MapContainer = ({ google, citizens }) => {
   }
 
   return (
-    <Map 
+    <Map
       google={google}
       zoom={6}
-      onReady={_onMapLoaded}
-      containerStyle={{ position: "relative"}}>
+      onReady={_onMapLoaded}>
       {
         citizens.map(c => <Marker
           position={c.location}
           key={c.document_number}
-          onClick={onMarkerClick}
+          onClick={(props, marker) => onMarkerClick(marker, c)}
           name={'Current location'}
           icon={{
             url: "./logo192.png",
@@ -91,11 +102,26 @@ const MapContainer = ({ google, citizens }) => {
           key={index}
         />)
       }
-      <InfoWindow onClose={onInfoWindowClose}>
-        <div>
-          <h1>Somewhere</h1>
-        </div>
-      </InfoWindow>
+        <InfoWindow onClose={onInfoWindowClose} visible={!!infoMarker} marker={infoMarker} >
+          <div className='infoWindowContainer'>
+            <h3>{selectedCitizen.first_name} {selectedCitizen.last_name}</h3>
+            <div className="info-item">
+              <strong>Cédula: </strong>
+              <span>{selectedCitizen.document_number}</span>
+            </div>
+            <div className="info-item">
+              <strong>Celular: </strong>
+              <span>{selectedCitizen.cellphone_number}</span>
+            </div>
+            <div className="info-item">
+             <strong>Sisben: </strong>
+              <span>{Math.round(selectedCitizen.sisben * 100)}</span>
+            </div>
+            <div className="info-action">
+              <Button color="primary" variant="contained">Ver población</Button>
+            </div>
+          </div>
+        </InfoWindow>
     </Map>
   )
 }
