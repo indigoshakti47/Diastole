@@ -8,12 +8,13 @@ import HomeIcon from '@material-ui/icons/Home';
 import ListIcon from '@material-ui/icons/List';
 import MapIcon from '@material-ui/icons/Map'
 import ExitToApp from '@material-ui/icons/ExitToApp'
+import Menu from '@material-ui/icons/Menu'
 
 import Logo from './../assets/logo.svg';
 
 const SideBar = ({ logout }) => {
     const createLink = (icon, name, route, action) => ({ icon, name, route, action })
-
+    const [active, setActive] = useState(false); 
     const links = [
         createLink(HomeIcon, 'Home', '/dashboard'),
         createLink(MapIcon, 'Mapa', '/map'),
@@ -38,6 +39,31 @@ const SideBar = ({ logout }) => {
                         </IconButton>
                     </div>
                 ))
+            }
+        </div>
+
+        <span className = "effect-side" /> 
+        <div className = {`side-bar mobile ${active ? 'active' : null}`}>
+            
+        {
+            active ? 
+           
+        
+              links.map(({ icon: Icon, name, route, action }, index) => (
+                    <div className = "icon-container-menu" onClick = { ()=> setActive(false)} key={name}> 
+                        <IconButton className="icon-side-menu" color="secondary" component={Link} to={route} onClick={() => action && action()}>
+                            <Badge color="white">
+                                <Icon />
+                            </Badge>
+                        </IconButton>
+                    </div>
+                )) : 
+                <div onClick = { ()=> setActive(true)}>
+                            <Badge color="white">
+                                <Menu style = { { color: 'white'}}/>
+                            </Badge>
+                    </div>
+                   
             }
         </div>
         </React.Fragment>
