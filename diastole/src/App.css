@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -101,4 +103,145 @@
 }
 .justify-content-between{
   justify-content: space-between;
+/*
+  Tracker 
+*/ 
+
+.blue-main-container{
+  background: #DFF1F7; 
+  font-family: 'Inter';
+  position: relative;
+  width: 100%;
+  height: 92vh;
+  
+}
+
+.heading-1{
+  font-weight: 800;
+  font-size: 36pt;
+}
+
+.heading-2{
+  font-weight: 600;
+  font-size: 24pt;
+}
+
+.paragraph{
+  font-weight: 500;
+  font-size: 15pt;
+}
+
+.card-text{
+  width: 80%;
+  background: white;
+  position: absolute;
+  font-family: 'Inter', sans-serif;
+  border-radius:  25px  25px 0px 0px ;
+  height: 200px;
+  bottom: 0px;
+  margin-bottom: 0px;
+  margin: auto;
+  margin-bottom: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: 80%;
+
+}
+
+
+.chatbot-header{
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  padding: 20px;
+  border-radius:  25px  25px 0px 0px  !important;
+  background: #98DBD8;
+  background-image: linear-gradient(255deg, rgba(255,255,255,0.50) 3%, #AAE1DF 78%);
+  box-shadow: 0 2px 4px 0 #ACE2E0;
+  width: 100%;
+  height: 60px;
+  color: white;
+
+  
+}
+
+.message-div{
+  font-family: 'Inter', sans-serif;
+
+  display: block;
+  margin: 20px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: start;
+  
+}
+
+.message-div > .profile-image{
+
+  display: block;
+  display: block;
+  width: 10%;
+  
+  flex-shrink: 9;
+  margin: auto;
+}
+
+.image-profile{
+  width: 50px;
+  margin: auto;
+  
+  display: block;
+}
+
+
+.text-div{
+  
+  width: 0px;
+  left: 0px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-content: middle;
+  
+}
+
+.text-container{
+  align-self: flex-start;
+  display: block;
+  background: rgba(216, 216, 216, .24);
+  border-radius: 15px;
+  color: black;
+  width: fit-content;
+  max-width: 50%;
+  justify-self: end;
+  padding: 15px;
+
+}
+
+.text-container::after{
+  padding-right: 200px;
+  width: 100px;
+}
+
+
+.name-div{
+  font-weight: 200;
+  font-size: 14px;
+  position: absolute;
+  margin-top: -40px;
+  
+  left: 0px;
+}
+
+
+.form-text-field{
+  width: 80%;
+  margin: auto;
+}
+
+.form-text-field{
+  bottom: 30px;
+  position: absolute;
+  left: 0px;
+  right: 0px;
 }

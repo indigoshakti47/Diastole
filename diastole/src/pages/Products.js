@@ -13,6 +13,9 @@ import {
 import { useFormik } from "formik"
 import * as Yup from "yup"
 
+import ChatBot from "../components/ChatBot.js";
+
+
 function Menu(props) {
   const [image, subiendoImage] = useState(null);
   const [initialValuesFormik, updateInititalValuesFormik] = useState({
@@ -179,6 +182,14 @@ function Menu(props) {
           </Card>
         </Box>
       </Container>
+
+
+      { /* Prueba */  }
+
+        <ChatBot test = { "hola " }
+        
+        /> 
+
     </>
   );
 }

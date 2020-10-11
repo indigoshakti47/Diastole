@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import Layout from './components/Layout';
 import Router from './router';
+
 import { store } from './store';
 import ListBeneficiaries from "./pages/ListBeneficiaries";
 import DetailedBeneficiarie from "./pages/DetailedBeneficiare";

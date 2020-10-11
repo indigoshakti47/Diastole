@@ -5,8 +5,9 @@ import Products from '../pages/Products';
 import ListBeneficiaries from '../pages/ListBeneficiaries';
 import DetailedBeneficiarie from '../pages/DetailedBeneficiare';
 import RequestCodeBeneficiarie from '../pages/RequestCodeBeneficiarie';
+import Tracker from '../pages/Tracker'; 
 
-// Este es un arreglo donde irán todas las rutas de nuestra App ;)
+// Este es un arreglo donde irán todas las rutas de nuestra App ;) - :D
 const ROUTES = [
   {
     path: ['/', '/login', '/sign-up'], // could be an array or a string
@@ -71,6 +72,12 @@ const ROUTES = [
     component: ListBeneficiaries,
     auth: true,
   },
+    path: '/tracker',
+    key: 'TRACKER',
+    exact: true,
+    component: Tracker,
+    auth: true,
+  }
 ];
 
 export default ROUTES;
