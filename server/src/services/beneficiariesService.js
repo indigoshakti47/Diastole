@@ -9,7 +9,7 @@ const { createMessageUser } = require("./messageService");
 async function createBeneficiaries() {
 
   let citizensRef = firebase.firestore().collection('citizens');
-  citizensRef = citizensRef.orderBy('sisben', 'asc').limit(2);
+  citizensRef = citizensRef.orderBy('sisben', 'asc').limit(25);
   let citizens = {};
 
   let beneficiarieRef = firebase.firestore().collection('beneficiarie');
@@ -25,7 +25,7 @@ async function createBeneficiaries() {
     citizens[doc.id].delivered = false;
     citizens[doc.id].confirmationCode = (Math.random().toString(36).slice(2)).substring(0,4);
     console.log(doc.data())
-    createMessageUser(citizens[doc.id])
+    //createMessageUser(citizens[doc.id])
   });
 
 
