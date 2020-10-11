@@ -13,7 +13,7 @@ import {
 import { useFormik } from "formik"
 import * as Yup from "yup"
 
-import ChatBot from "../components/ChatBot.js";
+
 
 
 function Menu(props) {
@@ -184,11 +184,7 @@ function Menu(props) {
       </Container>
 
 
-      { /* Prueba */  }
-
-        <ChatBot test = { "hola " }
-        
-        /> 
+   
 
     </>
   );

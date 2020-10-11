@@ -106,7 +106,7 @@
   font-family: 'Inter';
   position: relative;
   width: 100%;
-  height: 92vh;
+  height: 100vh;
   
 }
 
@@ -139,7 +139,7 @@
   left: 0px;
   right: 0px;
   bottom: 0px;
-  height: 80%;
+  height: 95%;
 
 }
 
@@ -239,3 +239,92 @@
   left: 0px;
   right: 0px;
 }
+
+/*
+  Sidebar 
+*/
+
+.side-bar{
+  background: #082E2D;
+  display: block;
+  width: 70px;
+  height: 100vh;
+  z-index: 200;
+  position: fixed;
+}
+
+.icon-container-menu{
+  margin: auto;
+  display: flex !important;
+  align-items: center;
+  align-items: middle;
+  
+}
+
+.icon-container-menu.last{
+  bottom: 0px;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+}
+
+.icon-side-menu{
+  background: white;
+  display: block; 
+  left: 0px; 
+  margin: auto !important;
+  justify-self: center;
+  
+}
+
+.icons-bar{
+  margin-top: 200px;
+  background: red;
+  position: absolute;
+}
+
+.MuiFab-primary{
+  background: red;
+}
+
+.icon-side-menu{
+  opacity: .3;
+  color: white !important ;
+}
+
+.icon-side-menu:hover{
+  opacity: 1;
+  transform: .5s ease-in;
+  color: white !important ;
+}
+
+.line-icon-decorator{
+  display: block;
+  position: absolute;
+  background: white;
+  opacity: .3;
+  width: 5px;
+  height: 40px;
+  margin: auto;
+}
+
+.icon-side-menu:hover + .line-icon-decorator{
+ background: red !important;
+ opacity: 1;
+ width: 10px;
+ height: 10px;
+
+}
+
+
+
+.logo{
+  margin: auto;
+  width: 40px;
+  height: 40px;
+  
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
