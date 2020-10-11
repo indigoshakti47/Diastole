@@ -18,7 +18,10 @@ import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import InfoIcon from '@material-ui/icons/InfoOutlined'
 import ExitToApp from '@material-ui/icons/ExitToApp'
+
+import SideBar from './Sidebar'; 
 
 const useStyles = makeStyles((theme) => ({
   palette: {
@@ -79,6 +82,7 @@ const PrimarySearchAppBar = ({ logout }) => {
   const links = [
     createLink(HomeIcon, 'Home', '/'),
     createLink(AccountCircle, 'Perfil', '/profile'),
+    createLink(InfoIcon, 'Prueba', '/tracker'),
     createLink(ExitToApp, 'Logout', '', logout),
   ]
 
@@ -117,35 +121,11 @@ const PrimarySearchAppBar = ({ logout }) => {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
-        <Toolbar color="primary">
-          <Typography className={classes.title} variant="h6" noWrap>
-            Diástole
-          </Typography>
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            {
-              links.map(({ icon: Icon, name, route, action }) => (
-                <IconButton color="inherit" key={name} component={Link} to={route} onClick={() => action && action()}>
-                  <Badge color="secondary">
-                    <Icon />
-                  </Badge>
-                </IconButton>
-              ))
-            }
-          </div>
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </div>
-        </Toolbar>
-      </AppBar>
+
+
+    <SideBar logout = {logout}/> 
+
+      
       {renderMobileMenu}
     </div>
   );

@@ -2,6 +2,8 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+let previousRoute = '/products';
+
 const AuthComponent = ({
   component: Component,
   path,
@@ -13,6 +15,8 @@ const AuthComponent = ({
     return <Route component={Component} path={path} exact={exact} />;
   }
 
+  previousRoute = path;
+
   return <Redirect to="/" />;
 };
 
@@ -23,7 +27,7 @@ const NoAuthComponent = ({
   logged,
 }) => {
   if (logged) {
-    return <Redirect to="/products" />;
+    return <Redirect to={previousRoute} />;
   }
 
   return <Route component={Component} path={path} exact={exact} />;
