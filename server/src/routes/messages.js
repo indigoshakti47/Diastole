@@ -4,7 +4,7 @@ const createError = require("http-errors");
 
 const { analizarYResponderNivelUnoIVRExampleB } = require('../actions/WorkShopExample2Actions');
 const { sendMessage, makeCall } = require('../avaya/functions');
-const { createMessageUser } = require("../services/messageService");
+const { createMessageUser, createMessageCode } = require("../services/messageService");
 
 router.post("/sendUserMessage", async (req, res, next) => {
   try {
