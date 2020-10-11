@@ -9,9 +9,10 @@ const AuthComponent = ({
   path,
   exact,
   logged,
+  redirect
 }) => {
   console.log('isLogged: ', logged)
-  if (logged) {
+  if (logged || redirect === false) {
     return <Route component={Component} path={path} exact={exact} />;
   }
 

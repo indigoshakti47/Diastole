@@ -1,3 +1,10 @@
 .Map div:first-child {
     height: 100%;
 }
+.dialog-success {
+    padding: 0 30px 30px 30px;
+    text-align: center;
+}
+.dialog-success p {
+    margin-bottom: 40px;
+}

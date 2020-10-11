@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+<<<<<<< HEAD
 import { Card, Box, Grid, Typography, Modal, TextField, Button, Icon } from '@material-ui/core'
+=======
+import { Card, Box, Grid, Typography, IconButton, Paper, InputBase, Divider } from '@material-ui/core'
+import { Search as SearchIcon, Close as CloseIcon } from '@material-ui/icons'
+>>>>>>> 0f045d166fc42463e0e20174639e507f15379674
 
 export default function ListBeneficiaries () {
 
@@ -8,17 +13,23 @@ export default function ListBeneficiaries () {
 
   let history = useHistory();
   const [beneficiaries, setBeneficiaries] = useState([]);
+<<<<<<< HEAD
   const [open, setOpen] = useState(false); 
   const [document, setDocument] = useState(); 
   const [code, setCode] = useState(); 
 
   const [option, setOption] = useState(0);  
+=======
+  const [filteredBeneficiaries, setFiltetedBeneficiaries] = useState([]);
+  const [searchInput, setSearchInput] = useState([]);
+>>>>>>> 0f045d166fc42463e0e20174639e507f15379674
 
   useEffect(() => {
     fetch('http://localhost:5000/allBeneficierie?limit=10', {
       method: 'GET',
     }).then(snap => snap.json()).then(response => {
       setBeneficiaries(Object.values(response.beneficiaries))
+      setFiltetedBeneficiaries(Object.values(response.beneficiaries))
     })
   }, []);
 
@@ -39,14 +50,17 @@ export default function ListBeneficiaries () {
     formData.append('person', beneficiarie);
     fetch('http://localhost:5000/sendCodeMessage', {
       method: 'POST',
-
-      body: formData
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({person : beneficiarie})
     }).then(snap => snap.text()).then(response => {
       console.log(response);
     }).catch(err => console.log(err))
     //  history.push("/detalles-beneficiarios/"+beneficiarie.document_number);
   }
 
+<<<<<<< HEAD
   /**
    * Actualizar el valor de documento del text field.
    * @param {*} e 
@@ -114,6 +128,21 @@ export default function ListBeneficiaries () {
   );
 
 
+=======
+  const filterBeneficiaries = (text) => {
+    let results = beneficiaries
+    if (text) {
+      results = beneficiaries.filter(b => `${b.first_name} ${b.last_name}`.includes(text))
+    }
+    setFiltetedBeneficiaries(results)
+  }
+
+  const onInput = (value) => {
+    setSearchInput(value)
+    filterBeneficiaries(value)
+  }
+
+>>>>>>> 0f045d166fc42463e0e20174639e507f15379674
   return (
     <React.Fragment>
       <Modal
@@ -127,8 +156,28 @@ export default function ListBeneficiaries () {
     
     <Box flexDirection={"column"} paddingX={"0.25rem"} paddingTop={"0.5rem"}>
       <Typography variant={"h4"} style={{ paddingBottom: "0.5rem" }} col>Lista de beneficiarios</Typography>
+      <Grid container justify="center">
+        <Grid item xs={12} sm={6} md={5} lg={3} xl={2}>
+          <Paper style={{ marginBottom: "1rem" }}>
+            <Box display="flex">
+              <IconButton aria-label="menu" flexGrow={0} onClick={() => onInput("")}>
+                <CloseIcon />
+              </IconButton>
+              <InputBase
+                value={searchInput}
+                onChange={(e) => onInput(e.target.value)}
+                style={{ flexGrow: 1 }}
+                placeholder="Buscar en la lista de beneficiarios"
+              />
+              <IconButton type="submit" aria-label="search" onClick={() => filterBeneficiaries(searchInput)}>
+                <SearchIcon />
+              </IconButton>
+            </Box>
+          </Paper>
+        </Grid>
+      </Grid>
       <Grid container spacing={1}>
-        {beneficiaries.map((beneficiarie, index) => {
+        {filteredBeneficiaries.map((beneficiarie, index) => {
           return <Grid key={index} item xs={12} sm={6} md={4} lg={3} xl={2}>
             <Card
               variant={"outlined"}

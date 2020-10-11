@@ -1,0 +1,58 @@
+.chatbot-fab {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  .MuiFab-primary {
+    background: #3bbbb2;
+  }
+  .MuiFab-primary:hover {
+    background: darken(#3bbbb2, 30);
+  }
+  .animated-text {
+    position: relative;
+    color: #ececec;
+    padding: 10px;
+    border-radius: 3px;
+    margin-right: 15px;
+    background: #3bbbb2;
+    box-shadow: 2px 2px 6px #00000094;
+    animation-name: show-text;
+    animation-duration: 20s;
+    transform: translateY(150px);
+    &:after {
+      position: absolute;
+      right: -10px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      content: '';
+      width: 0; 
+      height: 0; 
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 10px solid #3bbbb2;
+    }
+  }
+}
+
+@keyframes show-text {
+  0% {
+    transform: translateY(150px);
+  }
+  3% {
+    transform: translateY(-20px);
+  }
+  4% {
+    transform: translateY(0px);
+  }
+  97% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(150px);
+  }
+}

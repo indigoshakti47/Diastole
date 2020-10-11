@@ -101,14 +101,19 @@ async function getOneBeneficiarie(document_number) {
 * 
 * @return {Object} An object containing the users found.
 */
-async function setOneBeneficiarie(document_number) {
+async function setOneBeneficiarie(document_number, code) {
 
   const beneficiarieToSet = await getOneBeneficiarie(document_number)
+  const codeConfirmation = beneficiarieToSet[Object.keys(beneficiarieToSet)[0]].confirmationCode;
 
-  await firebase.firestore().collection('beneficiarie').doc(Object.keys(beneficiarieToSet)[0]).update({delivered: true})
-    .catch(() => {
-      throw createError(500, err);
-    });
+  if(codeConfirmation == code){
+    await firebase.firestore().collection('beneficiarie').doc(Object.keys(beneficiarieToSet)[0]).update({delivered: true})
+      .catch(() => {
+        throw createError(500, err);
+      });
+  } else {
+    throw createError(400, 'CODE_NOT_MATCH');
+  }
 
   return beneficiarieToSet;
 

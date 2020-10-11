@@ -34,7 +34,7 @@ async function createMessageCode(person) {
   try{
     //Create a user account by names and document ID
 
-    let bodyMessage = `Hola! El código para recibir tu pedido es ${person.confirmationCode}`;
+    let bodyMessage = `Hola ${person.first_name}! El código para recibir tu ayuda es ${person.confirmationCode}`;
   
     //Send message
     await sendMessage(`+57${person.cellphone_number}`, bodyMessage);
