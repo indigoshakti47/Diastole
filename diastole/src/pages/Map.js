@@ -9,10 +9,11 @@ export default function Map() {
     .then(function(querySnapshot) {
       const people = []
       querySnapshot.forEach((doc) => people.push(doc.data()));
+      console.log(people)
       setCitizens(people);
   })
   }, [])
   return (
-    <MapContainer citizens={citizens} />
+     citizens.length && <MapContainer citizens={citizens} />
   )
 }
