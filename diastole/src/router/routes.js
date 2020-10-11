@@ -71,7 +71,7 @@ const ROUTES = [
     exact: true,
     component: ListBeneficiaries,
     auth: true,
-  },
+  },{
     path: '/tracker',
     key: 'TRACKER',
     exact: true,

@@ -8,8 +8,16 @@ import PrimarySearchBar from './Bar';
 function Layout({ children, user }) {
   return (
     <>
-      {user && <PrimarySearchBar />}
-      {children}
+      
+      <div style = {{ display: 'flex'}}>
+        <div className = "layout-bar">
+          {user && <PrimarySearchBar />}
+        </div>
+        <div className = "layout-children">
+          {children}
+        </div>
+      </div>
+      
     </>
   )
 }

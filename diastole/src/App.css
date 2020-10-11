@@ -103,6 +103,7 @@
 }
 .justify-content-between{
   justify-content: space-between;
+}
 /*
   Tracker 
 */ 
@@ -256,7 +257,7 @@
   width: 70px;
   height: 100vh;
   z-index: 200;
-  position: fixed;
+  position: absolute;
 }
 
 .icon-container-menu{
@@ -334,3 +335,21 @@
   margin-bottom: 20px;
 }
 
+
+
+/*
+  Layout
+*/ 
+
+.layout-children{
+  
+  flex-grow: 20;
+  width: 10px;
+  background: red;
+  display: block;
+}
+
+.layout-bar{
+  flex-grow: 1;
+  display: block;
+}
