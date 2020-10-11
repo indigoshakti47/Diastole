@@ -82,13 +82,12 @@ export default function ListBeneficiaries () {
 
     fetch(`http://localhost:5000/beneficierie?document_number=${document}&code=${code}`, {
       method: 'PUT'
-      }).then(snap => snap.text()).then(response => {
-      console.log(response);
+      }).then(response => {
+      if(response.status == 400) alert("El código enviado no es correcto")
+      else alert("El código fue aceptado.")
+      console.log(response.status);
     }).catch(err => console.log(err))
-
-    console.log(`${code}`); 
     handleClose();
-    alert(`Datos Enviados:\n- ${code} - ${document}`); 
   }
 
   /**
@@ -104,7 +103,7 @@ export default function ListBeneficiaries () {
       },
       body: JSON.stringify({person : beneficiariee})
     }).then(snap => snap.text()).then(response => {
-      console.log(response);
+      alert("Código enviado");
     }).catch(err => console.log(err))
   }
 
