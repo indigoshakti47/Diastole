@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1019" height="485" viewBox="0 0 1019 485">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffc6da" stop-opacity="0.153"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0.153"/>
+    </linearGradient>
+    <filter id="Path_52" x="102.586" y="214.393" width="875.546" height="184.919" filterUnits="userSpaceOnUse">
+      <feOffset dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#fbc0d6"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="0.938" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#a6ffca" stop-opacity="0.267"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <filter id="Path_52-2" x="102.999" y="228.781" width="875.22" height="177.251" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-2"/>
+      <feFlood flood-color="#afeada"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Case_Status" data-name="Case Status" transform="translate(0 -108)">
+    <rect id="Rectangle_Copy" data-name="Rectangle Copy" width="1019" height="485" rx="30" transform="translate(0 108)" fill="#fff"/>
+    <rect id="Rectangle" width="170" height="96" rx="30" transform="translate(130 169)" fill="#fff8fa"/>
+    <text id="Total_Case" data-name="Total Case" transform="translate(166 211)" fill="#4b4279" font-size="14" font-family="Poppins-SemiBold, Poppins" font-weight="600"><tspan x="0" y="0">Pendientes</tspan></text>
+    <text id="_339_259" data-name="339,259" transform="translate(188 239)" fill="#df0a56" font-size="22" font-family="Poppins-Bold, Poppins" font-weight="700"><tspan x="0" y="0">2520</tspan></text>
+    <rect id="Rectangle-2" data-name="Rectangle" width="170" height="96" rx="30" transform="translate(736 172)" fill="#e6fff8"/>
+    <text id="Total_Case-2" data-name="Total Case" transform="translate(776 212)" fill="#4b4279" font-size="14" font-family="Poppins-SemiBold, Poppins" font-weight="600"><tspan x="0" y="0">Recibidos</tspan></text>
+    <text id="_339_259-2" data-name="339,259" transform="translate(789 243)" fill="#26a26b" font-size="22" font-family="Poppins-Bold, Poppins" font-weight="700"><tspan x="0" y="0">446</tspan></text>
+    <text id="_23_" data-name="23%" transform="translate(864 212)" fill="#817c9b" font-size="12" font-family="Poppins-SemiBold, Poppins" font-weight="600"><tspan x="0" y="0">23%</tspan></text>
+    <path id="Triangle" d="M9-6H9Z" transform="translate(385 210)" fill="#6db324"/>
+    <path id="Triangle-2" data-name="Triangle" d="M9-6H9Z" transform="translate(764 210)" fill="#6db324"/>
+    <text id="_250K_200K_150K_100K" data-name="250K 200K 150K 100K" transform="translate(88 323)" fill="#817c9b" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="-29.676" y="0">3000</tspan><tspan x="0" y="18"></tspan><tspan x="-29.508" y="36">2500</tspan><tspan x="0" y="54"></tspan><tspan x="-29.508" y="72">2000</tspan><tspan x="0" y="90"></tspan><tspan x="-26.448" y="108">1500</tspan><tspan x="0" y="126"></tspan><tspan x="-26.448" y="144">1000</tspan><tspan x="0" y="162"></tspan><tspan x="-22.608" y="180">500</tspan><tspan x="0" y="198"></tspan><tspan x="-7.536" y="216">0</tspan></text>
+    <g id="Group_9" data-name="Group 9" transform="translate(114 544)">
+      <text id="_01" data-name="01" transform="translate(0 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">01</tspan></text>
+      <text id="_02" data-name="02" transform="translate(27 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">02</tspan></text>
+      <text id="_03" data-name="03" transform="translate(58 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">03</tspan></text>
+      <text id="_04" data-name="04" transform="translate(89 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">04</tspan></text>
+      <text id="_05" data-name="05" transform="translate(120 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">05</tspan></text>
+      <text id="_06" data-name="06" transform="translate(151 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">06</tspan></text>
+      <text id="_07" data-name="07" transform="translate(182 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">07</tspan></text>
+      <text id="_08" data-name="08" transform="translate(212 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">08</tspan></text>
+      <text id="_09" data-name="09" transform="translate(242 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">09</tspan></text>
+      <text id="_10" data-name="10" transform="translate(273 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">10</tspan></text>
+      <text id="_11" data-name="11" transform="translate(300 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">11</tspan></text>
+      <text id="_12" data-name="12" transform="translate(323 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">12</tspan></text>
+      <text id="_13" data-name="13" transform="translate(350 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">13</tspan></text>
+      <text id="_14" data-name="14" transform="translate(377 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">14</tspan></text>
+      <text id="_15" data-name="15" transform="translate(404 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">15</tspan></text>
+      <text id="_16" data-name="16" transform="translate(431 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">16</tspan></text>
+      <text id="_17" data-name="17" transform="translate(458 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">17</tspan></text>
+      <text id="_18" data-name="18" transform="translate(484 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">18</tspan></text>
+      <text id="_19" data-name="19" transform="translate(511 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">19</tspan></text>
+      <text id="_20" data-name="20" transform="translate(538 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">20</tspan></text>
+      <text id="_21" data-name="21" transform="translate(569 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">21</tspan></text>
+      <text id="_22" data-name="22" transform="translate(596 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">22</tspan></text>
+      <text id="_23" data-name="23" transform="translate(625 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">23</tspan></text>
+      <text id="_24" data-name="24" transform="translate(655 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">24</tspan></text>
+      <text id="_25" data-name="25" transform="translate(686 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">25</tspan></text>
+      <text id="_26" data-name="26" transform="translate(717 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">26</tspan></text>
+      <text id="_27" data-name="27" transform="translate(748 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">27</tspan></text>
+      <text id="_28" data-name="28" transform="translate(777 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">28</tspan></text>
+      <text id="_29" data-name="29" transform="translate(808 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">29</tspan></text>
+      <text id="_30" data-name="30" transform="translate(839 13)" fill="#9792b1" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">30</tspan></text>
+    </g>
+    <g id="Group_7" data-name="Group 7" transform="translate(119 331)">
+      <path id="Path_52_Copy" data-name="Path 52 Copy" d="M0,152.425,73,73.474l83,21.685L293.832,42.005,393,65.091,533.073,47.431l21.056,15.12L591,89.026l93-41.6,72.6-5.425L784,0l59,8.49V199.526H0Z" transform="translate(0 0.474)" opacity="0.609" fill="url(#linear-gradient)"/>
+      <g transform="matrix(1, 0, 0, 1, -119, -223)" filter="url(#Path_52)">
+        <path id="Path_52-3" data-name="Path 52" d="M0,152.425,73,76.212l83,18.946L293.832,42.005,393,65.091,530.923,47.431,591,89.026l93-41.6,72.6-5.425L784,0l59,8.49" transform="translate(119 223.47)" fill="none" stroke="#f65f9c" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+      </g>
+    </g>
+    <g id="Group_7_Copy" data-name="Group 7 Copy" transform="translate(119 351)">
+      <path id="Path_52_Copy_2" data-name="Path 52 Copy 2" d="M0,136.071l83,.094,73.314,9.326L226,107.77H393.5L465,124.445l55-36.427,71-4.762,50,4.762,52-28.329,64.217,6.768L791,13.5,843,0V180H0Z" opacity="0.357" fill="url(#linear-gradient-2)"/>
+      <g transform="matrix(1, 0, 0, 1, -119, -243)" filter="url(#Path_52-2)">
+        <path id="Path_52-4" data-name="Path 52" d="M0,135.611l83,.094L156.314,145,226,107.405H393.5L465,124.024l55-36.3,71-4.746,50,4.746,52-28.233,64.217,6.745L791,13.457,843,0" transform="translate(119 243)" fill="none" stroke="#4ed69a" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+      </g>
+    </g>
+    <path id="Path_52_Copy_3" data-name="Path 52 Copy 3" d="M842,0" transform="translate(119 459)" fill="none" stroke="#554b86" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+    <path id="Line_9" data-name="Line 9" d="M.885.5.5,165.5" transform="translate(524 366)" fill="none" stroke="#e4e4e4" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1"/>
+    <g id="Oval_Copy_37" data-name="Oval Copy 37" transform="translate(519 456)" fill="#fff" stroke="#4ed69a" stroke-miterlimit="10" stroke-width="3">
+      <circle cx="6.5" cy="6.5" r="6.5" stroke="none"/>
+      <circle cx="6.5" cy="6.5" r="5" fill="none"/>
+    </g>
+    <g id="Oval_Copy_38" data-name="Oval Copy 38" transform="translate(519 388)" fill="#fff" stroke="#f65f9c" stroke-miterlimit="10" stroke-width="3">
+      <circle cx="6.5" cy="6.5" r="6.5" stroke="none"/>
+      <circle cx="6.5" cy="6.5" r="5" fill="none"/>
+    </g>
+  </g>
+</svg>
