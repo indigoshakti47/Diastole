@@ -30,6 +30,13 @@ const ROUTES = [
     auth: true,
   },
   {
+    path: '/map',
+    key: 'MAPS',
+    exact: true,
+    component: Map,
+    auth: true,
+  },
+  {
     path: '/lista-beneficiarios',
     key: 'LISTA_BENEFICIARIOS',
     exact: true,
@@ -48,7 +55,7 @@ const ROUTES = [
     exact: true,
     component: RequestCodeBeneficiarie,
     auth:true
-  },
+  }
 ];
 
 export default ROUTES;
