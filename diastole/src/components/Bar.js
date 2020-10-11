@@ -7,18 +7,13 @@ import * as authActions from '../actions/authActions';
 import { Link } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import InfoIcon from '@material-ui/icons/InfoOutlined'
+import ListIcon from '@material-ui/icons/List';
+import MapIcon from '@material-ui/icons/Map'
 import ExitToApp from '@material-ui/icons/ExitToApp'
 
 import SideBar from './Sidebar'; 
@@ -81,8 +76,8 @@ const PrimarySearchAppBar = ({ logout }) => {
 
   const links = [
     createLink(HomeIcon, 'Home', '/'),
-    createLink(AccountCircle, 'Perfil', '/profile'),
-    createLink(InfoIcon, 'Prueba', '/tracker'),
+    createLink(MapIcon, 'Mapa', '/map'),
+    createLink(ListIcon, 'Lista de beneficiarios', '/lista-beneficiarios'),
     createLink(ExitToApp, 'Logout', '', logout),
   ]
 
