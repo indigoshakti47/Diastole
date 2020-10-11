@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 
 export default function RequestCodeBeneficiarie() {
   const [beneficiarie, setBeneficiarie] = useState(null);
-  resendCode = ()=>{
+  const resendCode = ()=>{
 
   }
-  validateCode = event => {
+  const validateCode = event => {
     event.preventDefault();
     console.log(event.target);
   };

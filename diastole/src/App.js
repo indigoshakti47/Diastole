@@ -16,9 +16,8 @@ const App = () => {
       <BrowserRouter>
         <Layout>
           <Router>
-            <Route path="lista-beneficiarios" component={ListBeneficiaries}/>
-            <Route path="detalles-beneficiarios/:idBeneficiario" component={DetailedBeneficiarie}/>
-            <Route path="verificar-beneficiario/:idBeneficiario" component={RequestCodeBeneficiarie}/>
+            
+
           </Router>
         </Layout>
       </BrowserRouter>
