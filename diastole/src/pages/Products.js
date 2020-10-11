@@ -15,7 +15,6 @@ import * as Yup from "yup"
 
 
 
-
 function Menu(props) {
   const [image, subiendoImage] = useState(null);
   const [initialValuesFormik, updateInititalValuesFormik] = useState({

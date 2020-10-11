@@ -38,6 +38,8 @@ const SideBar = ({ logout }) => {
 
     const [activeIcon, setActiveIcon] = useState(); 
     return (
+        <React.Fragment> 
+            { /* Desktop */}
         <div className = "side-bar">
             <img className = "logo" src = {Logo} /> 
                 {
@@ -53,6 +55,12 @@ const SideBar = ({ logout }) => {
               ))
             }
         </div>
+       
+
+
+
+
+        </React.Fragment>
     ) 
 }
 

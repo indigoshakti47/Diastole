@@ -121,11 +121,7 @@ const PrimarySearchAppBar = ({ logout }) => {
 
   return (
     <div className={classes.grow}>
-
-
-    <SideBar logout = {logout}/> 
-
-      
+      <SideBar logout = {logout}/> 
       {renderMobileMenu}
     </div>
   );
