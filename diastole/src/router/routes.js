@@ -26,7 +26,7 @@ const ROUTES = [
     path: '/products',
     key: 'PRODUCTS',
     exact: true,
-    component: Products,
+    component: ListBeneficiaries,
     auth: true,
   },
   {
