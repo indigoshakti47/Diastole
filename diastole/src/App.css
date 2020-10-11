@@ -129,8 +129,10 @@
 }
 
 .paragraph{
-  font-weight: 500;
-  font-size: 15pt;
+  font-weight: 500 !important;
+  font-size: 10pt !important;
+  padding-top: 3px;
+
 }
 
 .card-text{
@@ -252,13 +254,45 @@
   Sidebar 
 */
 
-.side-bar{
+
+@media only screen and (max-width: 650px) {
+  .side-bar.desktop{
+   display: none !important;
+  }
+
+
+  .side-bar.mobile:hover{
+    transition: .7s;
+    width: calc(100% - 20px);
+    border-radius: 25;
+  }
+
+
+  .side-bar.mobile{
+    transition: .7s;
+    display: block;
+    position: fixed;
+    z-index: 200;
+    width:60px;
+    height: 60px;
+    border-radius: 100px;
+    left: 0px;
+    right: 0px; 
+    margin: auto;
+    bottom: 10px;
+    background: #F7F7F7;
+  }
+}
+
+.side-bar.desktop{
   background: #082E2D;
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-width: 70px;
   z-index: 200;
 }
+
 
 .icon-container-menu{
   display: flex !important;
@@ -407,4 +441,116 @@ Media queries
   width: 500px;
   height: 100px;
   margin-left: 50px;
+}
+
+@media only screen and (max-width: 900px) {
+  .modal-dialog{
+    transition: .3s;
+    background: white;
+    border-radius: 15px;
+    position: fixed;
+    margin: auto;
+    left: 0px;
+    right: 0px;
+    width: 90% !important;
+    top: 0px; 
+    bottom:0px;
+    height: 50%;
+    padding: 70px;
+    padding-top: 50px;
+  }
+
+
+}
+.modal-dialog{
+  transition: .4s;
+  background: white;
+  border-radius: 15px;
+  position: fixed;
+  margin: auto;
+  left: 0px;
+  right: 0px;
+  width: 40%;
+  min-width: fit-content;
+  top: 0px; 
+  bottom:0px;
+  min-height: 50%;
+  height: fit-content;
+  max-height: 70%;
+  padding: 70px;
+  padding-top: 50px;
+}
+
+.button-dialog{
+  width: 120px;
+  height: 50px;
+  font-size: 15px;
+  margin: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background: #589F9D;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  border-style: none; 
+  transition: .2s ease;
+}
+
+.button-dialog:hover{
+  
+  cursor: pointer;
+  
+  opacity: .8;
+  transition: .2s ease;
+  
+  
+  border-radius: 5px;
+  color: white;
+  border-style: none; 
+  box-shadow: gray 1px 1px 5px 0.1px;
+}
+
+.button-group{
+  margin-top: 20px;
+  width: fit-content;
+  right: 0px;
+
+  position: absolute;
+  
+  display: flex;
+  justify-items: flex-end;
+  align-items: flex-end;
+  
+}
+
+.secondary-button-modal{
+  background: #55C4C0;
+}
+
+.gray-color{
+  background: rgba(200,200,200, .7);
+  
+}
+
+gray-color:hover{
+  background: rgba(180,180,180, 1) !important;
+  
+}
+
+.optional-separator{
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.optional-separator > span{
+  display: block;
+  height: 1px;
+  width: 35%;
+  background: #589F9D;
+}
+
+.optional-separator > h3{
+  font-weight: 500;
 }

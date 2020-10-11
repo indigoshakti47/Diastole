@@ -8,10 +8,11 @@ export default function Map () {
   const [citizens, setCitizens] = useState([])
   useEffect(() => {
     let citizensRef = fire.firestore().collection('citizens')
-    citizensRef.orderBy("sisben").limit(5).get()
+    citizensRef.limit(5).get()
       .then(function (querySnapshot) {
         const people = []
         querySnapshot.forEach((doc) => people.push(doc.data()));
+        people.sort((a, b) => a.sisben - b.sisben);
         setCitizens(people);
       })
   }, [])

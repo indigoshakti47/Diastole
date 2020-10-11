@@ -13,10 +13,7 @@ const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Layout>
-          <Router>
-            
-
-          </Router>
+          <Router />
         </Layout>
       </BrowserRouter>
     </Provider>

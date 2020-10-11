@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Map, Marker, InfoWindow, GoogleApiWrapper, Polygon } from 'google-maps-react';
 import Button from '@material-ui/core/Button'
+import { high, low, medium } from '../constants/Priorities'
+import SimpleDialog from '../components/SimpleDialog'
 import '../styles/InfoWindow.scss'
+import { Link } from 'react-router-dom';
 
 const BOGOTA_COORDS = {
   lat: 4.693452,
@@ -10,6 +13,7 @@ const BOGOTA_COORDS = {
 
 const MapContainer = ({ google, citizens }) => {
   const [infoMarker, setInfoMarker] = useState(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedCitizen, setSelectedCitizen] = useState({});
 
   const generatePolygonPoints = (location, radius) => {
@@ -34,6 +38,12 @@ const MapContainer = ({ google, citizens }) => {
     setSelectedCitizen({});
   }
 
+  const getPriorityColor = (sisben) => {
+    if (sisben <= high.maxPoints) return high.color;
+    if (sisben <= medium.maxPoints) return medium.color;
+    return low.color;
+  }
+
   const _onMapLoaded = (mapProps, map) => {
     centerMap(map);
     setTimeout(() => {
@@ -49,10 +59,37 @@ const MapContainer = ({ google, citizens }) => {
     map.fitBounds(bounds);
   }
 
+  const radians_to_degrees = radians => radians * (180/ Math.PI)
+
+  const calcAngle = (point1, point2) => {
+    const dLng = (point1.lng - point2.lng);
+
+    const y = Math.sin(dLng) * Math.cos(point2.lat);
+    const x = Math.cos(point1.lat) * Math.sin(point2.lat) - Math.sin(point1.lat)
+            * Math.cos(point2.lat) * Math.cos(dLng);
+
+    let brng = Math.atan2(y, x);
+
+    brng = radians_to_degrees(brng);
+    brng = (brng + 360) % 360;
+    const deg = 360 - brng;
+    if ((deg >=0 && deg < 45) || deg > 315) return './plane0.png';
+    if (deg >= 45 && deg < 135) return './plane90.png';
+    if (deg >= 135 && deg < 225) return './plane180.png';
+    if (deg >= 225 && deg < 315) return './plane270.png';
+  }
+
   const animationPlane = (map, target) => {
+    const image = calcAngle(BOGOTA_COORDS, target);
     const marker = new google.maps.Marker({
-      position: BOGOTA_COORDS,
       map,
+      position: BOGOTA_COORDS,
+      optimized: false,
+      icon: {
+        url: image,
+        anchor: new google.maps.Point(15, 15),
+        scaledSize: new google.maps.Size(30, 30),
+      },
       title: "Plane",
     });
 
@@ -70,6 +107,8 @@ const MapContainer = ({ google, citizens }) => {
         setTimeout(function () {
           move(marker, frames, index + 1, wait, newDestination);
         }, 600);
+      } else {
+        setDialogOpen(true)
       }
     }
 
@@ -79,9 +118,17 @@ const MapContainer = ({ google, citizens }) => {
   }
 
   return (
+    <>
+    <SimpleDialog title="Llegada exitosa!" open={dialogOpen} onClose={() => setDialogOpen(false)}>
+      <div className="dialog-success">
+        <p>Los mercados llegaron de forma exitosa a la población más prioritara.</p>
+        <Button color="primary" variant="contained" component={Link} to="/lista-beneficiarios">Ver lista de entrega</Button>
+      </div>
+    </SimpleDialog>
     <Map
       google={google}
       zoom={6}
+      containerStyle={{position: "relative"}}
       onReady={_onMapLoaded}>
       {
         citizens.map(c => <Marker
@@ -90,15 +137,16 @@ const MapContainer = ({ google, citizens }) => {
           onClick={(props, marker) => onMarkerClick(marker, c)}
           name={'Current location'}
           icon={{
-            url: "./logo192.png",
-            anchor: new google.maps.Point(32, 32),
-            scaledSize: new google.maps.Size(64, 64)
+            url: "./person_marker.png",
+            anchor: new google.maps.Point(10, 10),
+            scaledSize: new google.maps.Size(20, 20)
           }}
         />)
       }
       {
         citizens.map((c, index) => <Polygon
-          paths={generatePolygonPoints(c.location, 2)}
+          options={{ strokeOpacity: 1, strokeColor: getPriorityColor(c.sisben), fillColor: getPriorityColor(c.sisben)}}
+          paths={generatePolygonPoints(c.location, 0.4)}
           key={index}
         />)
       }
@@ -115,14 +163,15 @@ const MapContainer = ({ google, citizens }) => {
             </div>
             <div className="info-item">
              <strong>Sisben: </strong>
-              <span>{Math.round(selectedCitizen.sisben * 100)}</span>
+              <span>{selectedCitizen.sisben}</span>
             </div>
             <div className="info-action">
-              <Button color="primary" variant="contained">Ver población</Button>
+              <Button color="primary" variant="contained" component='a' href="/lista-beneficiarios">Ver población</Button>
             </div>
           </div>
         </InfoWindow>
     </Map>
+    </>
   )
 }
 

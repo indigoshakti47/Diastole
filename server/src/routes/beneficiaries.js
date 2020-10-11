@@ -59,7 +59,9 @@ router.post("/beneficierie", async (req, res, next) => {
 router.put("/beneficierie", async (req, res, next) => {
   try {
 
-    await setOneBeneficiarie(req.query.document_number)
+    const { document_number, code } = req.query;
+    
+    await setOneBeneficiarie(document_number, code)
     
     res.json({
       status: 200,
