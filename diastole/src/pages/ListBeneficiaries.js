@@ -19,7 +19,7 @@ export default function ListBeneficiaries () {
   const [searchInput, setSearchInput] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/allBeneficierie?limit=10', {
+    fetch(process.env.REACT_APP_API_URL + 'allBeneficierie?limit=10', {
       method: 'GET',
     }).then(snap => snap.json()).then(response => {
       setBeneficiaries(Object.values(response.beneficiaries))
