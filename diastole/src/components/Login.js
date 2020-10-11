@@ -43,7 +43,7 @@ const Login = (props) => {
             fullWidth
             autoCapitalize
             required
-            value={email}
+            value={password}
             autoFocus onChange={(
               e => setPassword(e.target.value))}
           />
