@@ -14,7 +14,7 @@ const { createPersonAccount } = require("./accountService");
 async function createMessageUser(person) {
   try{
     
-    let bodyMessage = `${person.first_name}, fuiste seleccionado para la ayuda NOMBRE del gobierno, tu suplemento llegará en TIEMPO, recíbelo con el código ${person.confirmationCode}`;
+    let bodyMessage = `${person.first_name}, fuiste seleccionado para la ayuda del gobierno, tu suplemento llegará en 3 días, recíbelo con el código ${person.confirmationCode}`;
   
     //Send message
     await sendMessage(`+57${person.cellphone_number}`, bodyMessage);
