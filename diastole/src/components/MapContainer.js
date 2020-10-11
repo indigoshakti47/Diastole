@@ -21,7 +21,6 @@ const MapContainer = ({ google, citizens }) => {
 
   const onMarkerClick = marker => console.log(marker)
   const onInfoWindowClose = console.log
-  const center = citizens.length > 0 ? citizens[0].location : {}
 
   const _onMapLoaded = (mapProps, map) => {
     centerMap(map);
@@ -54,7 +53,7 @@ const MapContainer = ({ google, citizens }) => {
 
     const move = (marker, frames, index, wait, newDestination) => {
       marker.setPosition(frames[index]);
-      if (index != frames.length - 1) {
+      if (index !== frames.length - 1) {
         // call the next "frame" of the animation
         setTimeout(function () {
           move(marker, frames, index + 1, wait, newDestination);
@@ -68,7 +67,11 @@ const MapContainer = ({ google, citizens }) => {
   }
 
   return (
-    <Map google={google} zoom={6} center={center} onReady={_onMapLoaded}>
+    <Map 
+      google={google}
+      zoom={6}
+      onReady={_onMapLoaded}
+      containerStyle={{ position: "relative"}}>
       {
         citizens.map(c => <Marker
           position={c.location}
@@ -85,7 +88,7 @@ const MapContainer = ({ google, citizens }) => {
       {
         citizens.map((c, index) => <Polygon
           paths={generatePolygonPoints(c.location, 2)}
-          key={c.index}
+          key={index}
         />)
       }
       <InfoWindow onClose={onInfoWindowClose}>

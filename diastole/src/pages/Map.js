@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { Box } from '@material-ui/core'
 import MapContainer from '../components/MapContainer'
 import fire from '../fire'
+import "./Map.css"
 
 export default function Map () {
   const [citizens, setCitizens] = useState([])
@@ -14,6 +16,10 @@ export default function Map () {
       })
   }, [])
   return (
-     citizens.length && <MapContainer citizens={citizens} />
+    <Box className="Map" display="flex" height="100%" flexDirection="column">
+      {
+        citizens.length === 0 ? null : <MapContainer citizens={citizens} />
+      }
+    </Box>
   )
 }
