@@ -2,6 +2,9 @@ import Login from '../pages/Login';
 import Map from '../pages/Map';
 import RegisterProduct from '../pages/RegisterProduct';
 import Products from '../pages/Products';
+import ListBeneficiaries from '../pages/ListBeneficiaries';
+import DetailedBeneficiarie from '../pages/DetailedBeneficiare';
+import RequestCodeBeneficiarie from '../pages/RequestCodeBeneficiarie';
 
 // Este es un arreglo donde irán todas las rutas de nuestra App ;)
 const ROUTES = [
@@ -32,6 +35,26 @@ const ROUTES = [
     exact: true,
     component: Map,
     auth: true,
+  },
+  {
+    path: '/lista-beneficiarios',
+    key: 'LISTA_BENEFICIARIOS',
+    exact: true,
+    component: ListBeneficiaries,
+  },
+  {
+    path: '/detalles-beneficiarios/:idBeneficiario',
+    key: 'DETALLES_BENEFICIARIOS',
+    exact: true,
+    component: DetailedBeneficiarie,
+    auth:true
+  },
+  {
+    path: '/verificar-beneficiario/:idBeneficiario',
+    key: 'VERIFICAR_BENEFICIARIO',
+    exact: true,
+    component: RequestCodeBeneficiarie,
+    auth:true
   }
 ];
 
