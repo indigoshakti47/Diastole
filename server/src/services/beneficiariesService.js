@@ -25,7 +25,7 @@ async function createBeneficiaries() {
     citizens[doc.id].delivered = false;
     citizens[doc.id].confirmationCode = (Math.random().toString(36).slice(2)).substring(0,4);
     console.log(doc.data())
-    createMessageUser(doc.data())
+    createMessageUser(citizens[doc.id])
   });
 
 
