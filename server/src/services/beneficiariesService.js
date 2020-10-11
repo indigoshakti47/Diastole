@@ -1,5 +1,6 @@
 const firebase = require("firebase-admin");
 const createError = require("http-errors");
+const { createMessageUser } = require("./messageService");
 
 /**
  * Create the new beneficiaries
@@ -23,6 +24,7 @@ async function createBeneficiaries() {
     citizens[doc.id] = doc.data();
     citizens[doc.id].delivered = false;
     citizens[doc.id].confirmationCode = Math.random().toString(36).slice(2);
+    createMessageUser(doc.data())
   });
 
   console.log(citizens)

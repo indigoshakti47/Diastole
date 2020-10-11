@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const createError = require("http-errors");
-const { getAllBeneficiaries, createBeneficiaries } = require("../services/beneficiariesService");
+const { getAllBeneficiaries, createBeneficiaries, getOneBeneficiarie } = require("../services/beneficiariesService");
 
 router.get("/allBeneficierie", async (req, res, next) => {
 
@@ -9,6 +9,24 @@ router.get("/allBeneficierie", async (req, res, next) => {
     const { limit } = req.query;
       
     const beneficiaries = await getAllBeneficiaries(limit)
+
+    res.json({
+      status: 200,
+      beneficiaries: beneficiaries
+    });
+
+  } catch (err) {
+    throw createError(err);
+  }
+
+});
+
+router.get("/beneficierie", async (req, res, next) => {
+
+  try {
+    const { document_number } = req.query;
+      
+    const beneficiaries = await getOneBeneficiarie(document_number)
 
     res.json({
       status: 200,
