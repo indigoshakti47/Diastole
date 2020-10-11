@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Map, Marker, InfoWindow, GoogleApiWrapper, Polygon } from 'google-maps-react';
 import Button from '@material-ui/core/Button'
 import { high, low, medium } from '../constants/Priorities'
+import SimpleDialog from '../components/SimpleDialog'
 import '../styles/InfoWindow.scss'
+import { Link } from 'react-router-dom';
 
 const BOGOTA_COORDS = {
   lat: 4.693452,
@@ -11,6 +13,7 @@ const BOGOTA_COORDS = {
 
 const MapContainer = ({ google, citizens }) => {
   const [infoMarker, setInfoMarker] = useState(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedCitizen, setSelectedCitizen] = useState({});
 
   const generatePolygonPoints = (location, radius) => {
@@ -104,6 +107,8 @@ const MapContainer = ({ google, citizens }) => {
         setTimeout(function () {
           move(marker, frames, index + 1, wait, newDestination);
         }, 600);
+      } else {
+        setDialogOpen(true)
       }
     }
 
@@ -113,6 +118,13 @@ const MapContainer = ({ google, citizens }) => {
   }
 
   return (
+    <>
+    <SimpleDialog title="Llegada exitosa!" open={dialogOpen} onClose={() => setDialogOpen(false)}>
+      <div className="dialog-success">
+        <p>Los mercados llegaron de forma exitosa a la población más prioritara.</p>
+        <Button color="primary" variant="contained" component={Link} to="/lista-beneficiarios">Ver lista de entrega</Button>
+      </div>
+    </SimpleDialog>
     <Map
       google={google}
       zoom={6}
@@ -124,7 +136,7 @@ const MapContainer = ({ google, citizens }) => {
           onClick={(props, marker) => onMarkerClick(marker, c)}
           name={'Current location'}
           icon={{
-            url: "./logo192.png",
+            url: "./person_marker.png",
             anchor: new google.maps.Point(10, 10),
             scaledSize: new google.maps.Size(20, 20)
           }}
@@ -153,11 +165,12 @@ const MapContainer = ({ google, citizens }) => {
               <span>{selectedCitizen.sisben}</span>
             </div>
             <div className="info-action">
-              <Button color="primary" variant="contained">Ver población</Button>
+              <Button color="primary" variant="contained" component='a' href="/lista-beneficiarios">Ver población</Button>
             </div>
           </div>
         </InfoWindow>
     </Map>
+    </>
   )
 }
 
