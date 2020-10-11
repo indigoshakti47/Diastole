@@ -11,9 +11,12 @@ function Layout({ children, user }) {
     <>
       
       <Box display={'flex'} height={'100%'}>
-        <div className = "layout-bar">
-          {user && <PrimarySearchBar />}
-        </div>
+        {
+          user && 
+          <div className = "layout-bar">
+            <PrimarySearchBar />
+          </div>
+        }
         <div className = "layout-children">
           {children}
         </div>
