@@ -16,7 +16,6 @@ const ROUTES = [
     auth: false,
   },
   {
-<<<<<<< Updated upstream
     path: '/register-product',
     key: 'REGISTER_PRODUCT',
     exact: true,
@@ -38,8 +37,6 @@ const ROUTES = [
     auth: true,
   },
   {
-=======
->>>>>>> Stashed changes
     path: '/lista-beneficiarios',
     key: 'LISTA_BENEFICIARIOS',
     exact: true,
@@ -59,9 +56,6 @@ const ROUTES = [
     exact: true,
     component: RequestCodeBeneficiarie,
     auth:true
-<<<<<<< Updated upstream
-  }
-=======
   },
   {
     path: '/register-product',
@@ -77,8 +71,6 @@ const ROUTES = [
     component: ListBeneficiaries,
     auth: true,
   },
-
->>>>>>> Stashed changes
 ];
 
 export default ROUTES;

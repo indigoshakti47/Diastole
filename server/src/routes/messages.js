@@ -24,6 +24,7 @@ router.post("/sendUserMessage", async (req, res, next) => {
 });
 
 router.post("/sendCodeMessage", async (req, res, next) => {
+  console.log(req.params.person)
   try {
     
     await createMessageCode(req.body.person)

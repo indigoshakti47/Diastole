@@ -5,19 +5,20 @@ export default function ListBeneficiaries() {
   let history = useHistory();
   const [beneficiaries, setBeneficiaries] = useState([]);
   useEffect(() => {
-<<<<<<< Updated upstream
     fetch('http://localhost:5000/allBeneficierie?limit=10', {
-      method: 'GET',
+      method: 'GET',  
     }).then(snap => snap.json()).then(response => {
       setBeneficiaries(Object.values(response.beneficiaries))
     })
   }, []);
   const goToBeneficiareData = (beneficiarie) => {
+    console.log(beneficiarie)
     //mandar sms al beneficiario
     let formData = new FormData();
     formData.append('person', beneficiarie);
     fetch('http://localhost:5000/sendCodeMessage', {
       method: 'POST',
+
       body: formData
     }).then(snap => snap.text()).then(response => {
       console.log(response);
@@ -34,35 +35,6 @@ export default function ListBeneficiaries() {
             <span style={{ color: (beneficiarie.delivered ? "green" : "red") }}>{beneficiarie.delivered ? "Entregado" : "Sin entregar"}</span>
           </div>
           <div>{beneficiarie.document_number}</div>
-=======
-    fetch("http://localhost:5000/allBeneficierie?limit=10", {
-      method: 'GET',
-      
-  }).then(snap => snap.json()).then(response=>{
-    console.log(Object.values(response.beneficiaries));
-    setBeneficiaries(Object.values(response.beneficiaries));
-  })
-  },[]);
-  const goToBeneficiareData = (beneficiarie)=>{
-    //mandar sms al beneficiario
-    fetch('http://localhost:5000/sendCodeMessage', {
-      method: 'POST',
-      body: {person:beneficiarie}
-  }).then(snap => snap.text()).then(response=>{
-    console.log(response);
-  })
-//    history.push("/detalles-beneficiarios/"+beneficiarie.document_number);
-  }
-  return (
-    <div>
-      {beneficiaries.map((beneficiarie, index)=>{
-        return <div onClick={()=>goToBeneficiareData(beneficiarie)}>
-          <div className="d-flex justify-content-between">
-            <strong>{beneficiarie.first_name + " " + beneficiarie.last_name}</strong>
-      <span style={{color: (beneficiarie.delivered ? "green":"red")}}>{beneficiarie.delivered ? "Entregado":"Sin entregar"}</span>
-            </div>
-      <div>{beneficiarie.document_type+": "+ beneficiarie.document_number}</div>
->>>>>>> Stashed changes
         </div>
       })}
     </div>
