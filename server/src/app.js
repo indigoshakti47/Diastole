@@ -5,10 +5,10 @@ const admin = require('firebase-admin');
 const cors = require('cors');
 const serviceAccount = require("../diastole11-firebase-adminsdk-jdbmm-85bda9682b.json");
 
-
 const { getFirebaseCredentials, errorHandler } = require("./helpers/helperFunctions");
 
 require('dotenv').config();
+require('express-async-errors');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),

@@ -19,8 +19,10 @@ export default function ListBeneficiaries () {
     formData.append('person', beneficiarie);
     fetch('http://localhost:5000/sendCodeMessage', {
       method: 'POST',
-
-      body: formData
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({person : beneficiarie})
     }).then(snap => snap.text()).then(response => {
       console.log(response);
     }).catch(err => console.log(err))
