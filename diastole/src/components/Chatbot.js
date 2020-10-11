@@ -11,6 +11,7 @@ const uuid = require('uuid');
 const Chatbot = () => {
     const [send, setSend] = useState(false); 
     const [text, setText] = useState(); 
+    const [comments, setComments] = useState(); 
     const [textList, setTextList] = useState([]); 
     const [counter, setCounter] = useState(0); 
 
@@ -58,7 +59,7 @@ const Chatbot = () => {
     }
 
     const addText = (text)=> {
-        let tempArray = textList; 
+        let tempArray = textList;    
         tempArray.push(text); 
         setTextList(tempArray); 
     }
