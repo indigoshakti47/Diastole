@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="724.5" height="159" viewBox="0 0 724.5 159">
+  <g id="Status_Bar" data-name="Status Bar" transform="translate(1)">
+    <g id="Group_51" data-name="Group 51" transform="translate(4.5 -54)">
+      <rect id="Rectangle_Copy_13" data-name="Rectangle Copy 13" width="220" height="84" rx="12" transform="translate(238 54)" fill="#f78fb3"/>
+      <g id="Rectangle_Copy_14" data-name="Rectangle Copy 14" transform="translate(241 54)" fill="#fff0f5" stroke="#fd79a8" stroke-miterlimit="10" stroke-width="1" stroke-dasharray="3">
+        <rect width="214" height="84" rx="12" stroke="none"/>
+        <rect x="0.5" y="0.5" width="213" height="83" rx="11.5" fill="none"/>
+      </g>
+      <g id="Group_30" data-name="Group 30" transform="translate(7 201)">
+        <rect id="Rectangle" width="683" height="10" rx="5" fill="#fd79a8"/>
+        <g id="Rectangle_Copy_11" data-name="Rectangle Copy 11" transform="translate(632)" fill="#574b90" stroke="#fff" stroke-miterlimit="10" stroke-width="2">
+          <rect width="51" height="10" rx="5" stroke="none"/>
+          <rect x="-1" y="-1" width="53" height="12" rx="6" fill="none"/>
+        </g>
+        <g id="Rectangle_Copy_10" data-name="Rectangle Copy 10" fill="#d63031" stroke="#fff" stroke-miterlimit="10" stroke-width="2">
+          <rect width="214" height="10" rx="5" stroke="none"/>
+          <rect x="-1" y="-1" width="216" height="12" rx="6" fill="none"/>
+        </g>
+        <g id="Rectangle_Copy_15" data-name="Rectangle Copy 15" fill="#55efc4" stroke="#fff" stroke-miterlimit="10" stroke-width="2">
+          <rect width="169" height="10" rx="5" stroke="none"/>
+          <rect x="-1" y="-1" width="171" height="12" rx="6" fill="none"/>
+        </g>
+      </g>
+      <g id="Group_31" data-name="Group 31" transform="translate(298 67)">
+        <text id="Total_Case" data-name="Total Case" transform="translate(-23 16)" fill="#4b4279" font-size="16" font-family="Poppins-SemiBold, Poppins" font-weight="600"><tspan x="0" y="0">Beneficiaros totales</tspan></text>
+        <text id="_339_259" data-name="339,259" transform="translate(24 49)" fill="#df0a56" font-size="26" font-family="Poppins-Bold, Poppins" font-weight="700"><tspan x="0" y="0">3000</tspan></text>
+      </g>
+      <path id="Path_9" data-name="Path 9" d="M.025,60V40S-1.005,0,41.22,0H206" transform="translate(20 92)" fill="none" stroke="#fd79a8" stroke-linecap="round" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="1" stroke-dasharray="3 4"/>
+      <path id="Path_9_Copy" data-name="Path 9 Copy" d="M-.025,51V40S1.005,0-41.22,0H-206" transform="translate(677 92)" fill="none" stroke="#fd79a8" stroke-linecap="round" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="1" stroke-dasharray="3 4"/>
+      <g id="Group_37" data-name="Group 37" transform="translate(654 154)" opacity="0.34">
+        <text id="_14606" data-name="14606" transform="translate(0 16)" fill="#4b4279" font-size="15" font-family="Poppins-SemiBold, Poppins" font-weight="600"><tspan x="0" y="0">34</tspan></text>
+        <text id="Death" transform="translate(-25 34)" fill="#817c9b" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">No entregados</tspan><tspan font-family="Poppins-Regular"><tspan x="0" y="18"></tspan></tspan></text>
+      </g>
+      <g id="Group_33" data-name="Group 33" transform="translate(380 153)">
+        <text id="_14606_copy" data-name="14606 copy" transform="translate(50.5 16)" fill="#4b4279" font-size="15" font-family="Poppins-SemiBold, Poppins" font-weight="600"><tspan x="-18.825" y="0">2500</tspan></text>
+        <text id="Active_Confimed" data-name="Active Confimed" transform="translate(50 32)" fill="#817c9b" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="-37.206" y="0">Por entregar</tspan></text>
+      </g>
+      <g id="Group_34" data-name="Group 34" transform="translate(138 154)">
+        <text id="_14606_copy_2" data-name="14606 copy 2" transform="translate(36 16)" fill="#4b4279" font-size="15" font-family="Poppins-SemiBold, Poppins" font-weight="600"><tspan x="0" y="0">20</tspan></text>
+        <text id="Critical_and_Serious" data-name="Critical and Serious" transform="translate(12 34)" fill="#817c9b" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">En proceso</tspan></text>
+      </g>
+      <g id="Group_36" data-name="Group 36" transform="translate(0 157)">
+        <text id="_14606_copy_3" data-name="14606 copy 3" transform="translate(24.5 16)" fill="#4b4279" font-size="15" font-family="Poppins-SemiBold, Poppins" font-weight="600"><tspan x="-14.715" y="0">446</tspan></text>
+        <text id="Recover" transform="translate(24.5 32)" fill="#817c9b" font-size="12" font-family="Poppins-Regular, Poppins"><tspan x="-29.046" y="0">Recibidos</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

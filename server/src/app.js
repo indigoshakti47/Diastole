@@ -30,9 +30,12 @@ app.get('/', (req, res) => {
 /* Declare routes*/
 const messagesRoute = require('./routes/messages');
 const beneficiaresRoute = require('./routes/beneficiaries');
+const chatRoute = require('./routes/chat');
  
 app.use(messagesRoute);
 app.use(beneficiaresRoute);
+app.use(chatRoute);
+
 app.use(errorHandler);
 
 app.listen(port, () => {
