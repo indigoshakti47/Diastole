@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const createError = require("http-errors");
-const { getAllBeneficiaries, createBeneficiaries, getOneBeneficiarie } = require("../services/beneficiariesService");
+const { getAllBeneficiaries, createBeneficiaries, getOneBeneficiarie, setOneBeneficiarie } = require("../services/beneficiariesService");
 
 router.get("/allBeneficierie", async (req, res, next) => {
 
@@ -30,7 +30,7 @@ router.get("/beneficierie", async (req, res, next) => {
 
     res.json({
       status: 200,
-      beneficiaries: beneficiaries
+      beneficiarie: beneficiaries
     });
 
   } catch (err) {
@@ -48,6 +48,22 @@ router.post("/beneficierie", async (req, res, next) => {
     res.json({
       status: 200,
       beneficiaries: beneficiaries
+    });
+
+  } catch (err) {
+    throw createError(err);
+  }
+
+});
+
+router.put("/beneficierie", async (req, res, next) => {
+  try {
+
+    await setOneBeneficiarie(req.query.document_number)
+    
+    res.json({
+      status: 200,
+      message: "BENEFICIARIE_UPDATED"
     });
 
   } catch (err) {

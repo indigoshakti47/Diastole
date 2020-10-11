@@ -3,7 +3,7 @@ var firebase = require("firebase-admin");
 const { sendMessage } = require("../avaya/functions");
 var createError = require("http-errors");
 
-const { createUserAccount } = require("./accountService");
+const { createPersonAccount } = require("./accountService");
 
 /**
  * Sends a message.
@@ -13,19 +13,11 @@ const { createUserAccount } = require("./accountService");
  */
 async function createMessageUser(person) {
   try{
-    //Create a user account by names and document ID
-    const userAccount = person.first_name.replace(/\s/g, '') + 
-    person.last_name.replace(/\s/g, '') + person.document_number;
-
-    //Create a random password
-    const password = Math.random().toString(36).substr(2, 8);
-  
-    const accountToSend = await createUserAccount(userAccount, password);
-  
-    let bodyMessage = `Body false ${accountToSend.email}`;
+    
+    let bodyMessage = `${person.first_name}, fuiste seleccionado para la ayuda NOMBRE del gobierno, tu suplemento llegará en TIEMPO`;
   
     //Send message
-    await sendMessage(`+57${person.phone}`, bodyMessage);
+    await sendMessage(`+57${person.cellphone_number}`, bodyMessage);
 
   } catch(err){
     throw createError(400, err);
