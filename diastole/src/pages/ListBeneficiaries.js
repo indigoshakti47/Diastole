@@ -20,7 +20,7 @@ export default function ListBeneficiaries () {
   const [searchInput, setSearchInput] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/allBeneficierie?limit=25', {
+    fetch(process.env.REACT_APP_API_URL + 'allBeneficierie?limit=25', {
       method: 'GET',
     }).then(snap => snap.json()).then(response => {
       setBeneficiaries(Object.values(response.beneficiaries))
@@ -66,7 +66,7 @@ export default function ListBeneficiaries () {
    */
   const retrieveData = () => {
 
-    fetch(`http://localhost:5000/beneficierie?document_number=${document}&code=${code}`, {
+    fetch(process.env.REACT_APP_API_URL + `beneficierie?document_number=${document}&code=${code}`, {
       method: 'PUT'
       }).then(response => {
       if(response.status == 400) alert("El código enviado no es correcto")
@@ -92,7 +92,7 @@ export default function ListBeneficiaries () {
   const rememberCode = () => {
     let formData = new FormData();
     formData.append('person', beneficiariee);
-    fetch('http://localhost:5000/sendCodeMessage', {
+    fetch(process.env.REACT_APP_API_URL + 'sendCodeMessage', {
       method: 'POST',
       headers:{
         'Content-Type': 'application/json'

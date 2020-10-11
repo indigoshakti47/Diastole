@@ -5,7 +5,7 @@ export default function DetailedBeneficiarie() {
     let history = useHistory();
     const [beneficiarie, setBeneficiarie] = useState(null);
     const sendCode = () => {
-        fetch('https://localhost:5000/', {
+        fetch(process.env.REACT_APP_API_URL, {
             method: 'POST',
             body: {}
         }).then(snap => {
