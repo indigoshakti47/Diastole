@@ -87,7 +87,10 @@ const Chatbot = ({ sessionId }) => {
                     <div style={{ overflow: 'scroll', height: '100%' }}>
                         {messages.map(({isUser, text}, i) => <Message isUser={isUser} text={text} key={i} />)}
                     </div>
-                    <form className="form-text-field">
+                    <form className="form-text-field" onSubmit={ e => {
+                        e.preventDefault()
+                        sendMessage()
+                    }}>
                         {/* Barra de texto */}
                         <Grid container fullWidth >
                             {/* Textfield */}
