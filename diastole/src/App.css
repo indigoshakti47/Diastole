@@ -260,6 +260,9 @@
    display: none !important;
   }
 
+  .effect-side{
+    display: none !important;
+  }
 
   .side-bar.mobile.active{
     transition: .7s;
